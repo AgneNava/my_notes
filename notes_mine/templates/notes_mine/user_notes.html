@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% block content %}
+    <h1>{% trans 'My notes:' %}</h1>
+    {% if notes %}
+      {% for a in notes %}
+    <!-- <hr> -->
+        <ul>
+          <li>Title: {{a.note.title}}</li>
+          <li>Title: {{a.note.photo}}</li>
+          <li>Title: {{a.note.text}}</li>
+                    
+            {% if a.user == user %}
+              <div>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">Redaguoti</a>
+              </div>
+            {% endif %}
+          <br/>
+          <a class="btn btn-primary" href="#" role="button">Peržiūrėti</a>
+        </ul>
+      {% endfor %}
+    {% else %}
+      <p>There are no notes created yet. You can start here: <a href="#">Create new note</a></p>
+    {% endif %}
+
+  <a class="nav-link" href="#">{% trans 'New note:' %}</a>
+  
+{% endblock %}
