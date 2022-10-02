@@ -9,7 +9,7 @@ from PIL import Image
 
 class Note(models.Model):
   title = models.CharField(_('Title'), max_length=200)
-  photo = models.ImageField(default=None, upload_to="images",)
+  photo = models.ImageField(_('Photo'), null=True, upload_to="images",)
   text = models.TextField(_('Text'), max_length=2000)
   category = models.ManyToManyField('Category')
   user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
@@ -32,6 +32,10 @@ class Category(models.Model):
 
   def __str__(self):
       return self.name
+
+  class Meta:
+    verbose_name = 'Kategorija'
+    verbose_name_plural = 'Kategorijos'
 
 
 class Profile(models.Model):
