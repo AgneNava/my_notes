@@ -23,8 +23,6 @@ def index(request):
     notes = Note.objects.all()
     return render(request, 'notes_mine/index.html', context={'notes': notes})
 
-def test(request):
-  return render(request, 'notes_mine/test.html')
 
 
 class UserNotesListView(LoginRequiredMixin,generic.ListView):
@@ -50,3 +48,7 @@ def register(request):
     return render(request, 'notes_mine/register.html', {'form': form})
 
 
+def search(request):
+    query = request.GET.get('query')
+    search_results = Note.objects.filter(Q(title__icontains=query) | Q(text__icontains=query))
+    return render(request, 'notes_mine/search.html', {'notes': search_results, 'query': query})
