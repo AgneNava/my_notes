@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+
+
 {% block content %}
     {% if messages %}
         {% for message in messages %}
@@ -20,7 +22,7 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="username">Vartotojo vardas</label>
+                <label for="username">User name</label>
                 <input name="username" type="text" class="form-control" id="username" aria-describedby="usernameHelp">
                 <small id="usernameHelp" class="form-text text-muted">Iki 150 simbolių.</small>
             </div>

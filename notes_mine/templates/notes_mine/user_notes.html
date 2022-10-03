@@ -1,27 +1,28 @@
 {% extends "base.html" %}
 
+{% load i18n %}
 
 {% block content %}
     <h1>'My notes:</h1>
-    {% if notes %}
-      {% for a in notes %}
+    {% if note_list %}
+      {% for note in note_list %}
     <!-- <hr> -->
         <ul>
-          <li>Title: {{a.note.title}}</li>
+          <li>{{note.title}}</li>
           <!-- <li>Title: {{a.note.photo}}</li> -->
-          <li>Title: {{a.note.text}}</li>
+          <li>{{note.text}}</li>
                     
-            {% if a.user == user %}
+            {% if note.user == user %}
               <div>
-                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">Redaguoti</a>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">Edit</a>
               </div>
             {% endif %}
           <br/>
-          <a class="btn btn-primary" href="#" role="button">Peržiūrėti</a>
+          <a class="btn btn-primary" href="#" role="button">Preview</a>
         </ul>
       {% endfor %}
     {% else %}
-      <p>There are no notes created yet. You can start here: <a href="#">Create new note</a></p>
+      <p>There are no notes created yet. You can start here: <a class="btn btn-primary" href="#" role="button">CREATE</a></p>
     {% endif %}
 
   <a class="nav-link" href="#">'New note:'</a>

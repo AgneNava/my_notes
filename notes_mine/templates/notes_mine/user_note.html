@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>My note preview:</h1>
+    <hr>
+        <ul>
+        <!-- <img class="rounded-circle" src="{{object.reader.profilis.nuotrauka.url}}"> -->
+        <li><strong>{{object.title}}</strong></li>
+        <li> {{object.photo}}</li>
+        <li> {{object.category}}</li>
+        <li> {{object.text}}</li>
+        
+        {% if object.user == user %}
+        <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-note-update' object.id %}">Edit</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-note-delete' object.id %}">Delete</a>
+        </div>
+        {% endif %}
+        <br/>
+      </li>
+    </ul>
+{% endblock %}
