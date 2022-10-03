@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'lt'
 
 TIME_ZONE = 'UTC'
 
@@ -113,6 +113,12 @@ USE_I18N = True
 
 USE_TZ = True
 
+from django.utils.translation import gettext_lazy as _
+
+LANGUAGES = (
+    ('en-us', _('English')),
+    ('lt', _('Lithuanian')),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -123,3 +129,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# media folder settings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'library/media')
+
+MEDIA_URL = 'media/'
+# print(MEDIA_ROOT) - nevenkite padebuginti, bus lengviau nepasiklysti django filesystem džiunglėse
+
+LOGIN_REDIRECT_URL = '/'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'cae474ba285788'
+EMAIL_HOST_PASSWORD = '0cd1b15e0f1a35'
+EMAIL_PORT = '2525'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
