@@ -89,3 +89,27 @@ class UserNoteCreateView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+class NoteUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Note
+    fields = ['title', 'photo', 'category', 'text']
+    template_name = 'notes_mine/user_note_form.html'
+
+    def get_success_url(self):
+        return reverse('notes_mine:mynotes')
+
+    def test_func(self):
+        note = self.get_object()
+        return self.request.user == note.user
+
+
+class NoteDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = Note
+    success_url = reverse_lazy('notes_mine:mynotes')
+    template_name = 'notes_mine/user_note_delete.html'
+
+    # Testas tas pats
+    def test_func(self):
+        note = self.get_object()
+        return self.request.user == note.user
