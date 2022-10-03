@@ -25,15 +25,6 @@ def index(request):
 
 
 
-class UserNotesListView(LoginRequiredMixin,generic.ListView):
-    model = Note
-    context_object_name = 'notes'
-    template_name ='notes_mine/user_notes.html'
-   
-    def get_queryset(self):
-        return Note.objects.filter(user=self.request.user).order_by('title')
-
-
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -71,3 +62,14 @@ def search(request):
     query = request.GET.get('query')
     search_results = Note.objects.filter(Q(title__icontains=query) | Q(text__icontains=query))
     return render(request, 'notes_mine/search.html', {'notes': search_results, 'query': query})
+
+
+class UserNotesListView(LoginRequiredMixin,generic.ListView):
+    model = Note
+    context_object_name = 'notes'
+    template_name ='notes_mine/user_notes.html'
+   
+    def get_queryset(self):
+        return Note.objects.filter(user=self.request.user).order_by('title')
+
+

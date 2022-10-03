@@ -14,13 +14,14 @@
     />
     <!-- Add additional CSS in static file -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'library/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'notes_mine/style.css' %}" />
   </head>
   <body>
     <nav>
       <a href="#">Notes</a>
       <a href="#">Search</a>
       <a href="#">My notes</a>
+      <a href="{% url 'profile' %}">My Profile</a>
       <a href="#">Lang</a>
       
     </nav>
