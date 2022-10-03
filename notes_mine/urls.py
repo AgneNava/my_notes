@@ -8,5 +8,6 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('mynotes/', views.UserNotesListView.as_view(), name='mynotes'),
     path('mynotes/<int:pk>', views.UserNoteDetailView.as_view(), name='my-note'),
+    path('mynotes/new', views.UserNoteCreateView.as_view(), name='my-new-note'),
     path('search/', views.search, name='search'),
 ]

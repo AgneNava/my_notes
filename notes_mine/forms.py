@@ -41,3 +41,8 @@ class ProfileUpdateForm(forms.ModelForm):
   class Meta:
     model = Profile
     fields = ['photo']
+
+class UserNoteCreateForm(forms.ModelForm):
+  class Meta:
+    model = Note
+    fields = ['title', 'photo', 'category', 'text']

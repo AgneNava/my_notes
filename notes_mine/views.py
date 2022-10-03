@@ -15,7 +15,7 @@ from django.utils.translation import gettext as _
 from django.views.generic.edit import FormMixin
 
 from .models import Note, Profile, Category
-from .forms import RegistrationForm, UserUpdateForm, ProfileUpdateForm
+from .forms import RegistrationForm, UserUpdateForm, ProfileUpdateForm, UserNoteCreateForm
 
 # Create your views here.
 
@@ -76,3 +76,16 @@ class UserNoteDetailView(LoginRequiredMixin, generic.DetailView):
     model = Note
     template_name = 'notes_mine/user_note.html'
 
+
+class UserNoteCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Note
+    form_class = UserNoteCreateForm
+    template_name = 'notes_mine/user_note_form.html'
+
+    # Vietoj success_url:
+    def get_success_url(self):
+        return reverse('notes_mine:mynotes')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
