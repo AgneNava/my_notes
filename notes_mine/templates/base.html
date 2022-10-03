@@ -18,13 +18,26 @@
   </head>
   <body>
     <nav>
-      <a href="#">Notes</a>
-      <a href="#">Search</a>
-      <a href="#">My notes</a>
-      <a href="{% url 'profile' %}">My Profile</a>
-      <a href="#">Lang</a>
-      
+      <div>
+        <a href="#">Notes</a>
+        <a href="#">Search</a>
+        <a href="#">Lang</a>
+      </div>
+      <div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}">{{ user.get_username }} profile</a>
+            <a href="{% url 'mynotes' %}">My Notes</a>
+          {% else %}
+            <a href="{% url 'login' %}?next={% url 'index' %}">Login</a>  
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+      </div>
+
+
+
     </nav>
+
+
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-2">
