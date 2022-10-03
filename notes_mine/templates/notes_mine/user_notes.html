@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% load i18n %}
+
 {% block content %}
-    <h1>{% trans 'My notes:' %}</h1>
+    <h1>'My notes:</h1>
     {% if notes %}
       {% for a in notes %}
     <!-- <hr> -->
         <ul>
           <li>Title: {{a.note.title}}</li>
-          <li>Title: {{a.note.photo}}</li>
+          <!-- <li>Title: {{a.note.photo}}</li> -->
           <li>Title: {{a.note.text}}</li>
                     
             {% if a.user == user %}
@@ -24,6 +24,6 @@
       <p>There are no notes created yet. You can start here: <a href="#">Create new note</a></p>
     {% endif %}
 
-  <a class="nav-link" href="#">{% trans 'New note:' %}</a>
+  <a class="nav-link" href="#">'New note:'</a>
   
 {% endblock %}

@@ -1,3 +1,8 @@
+<!-- <br>
 <br>
-<br>
-<h1>Zinuciu puslapis INDEX</h1>
+<h1>Uzrasu puslapis INDEX</h1>
+<h2>Dar papildau</h2> -->
+
+{% extends "base.html" %} {% block content %} {% for note in notes %}
+<p>{{ note.title }}</p>
+{% endfor %} {% endblock %}
