@@ -32,6 +32,7 @@
             <a href="{% url 'notes_mine:profile' %}">{{ user.get_username }} profile</a>
             <a href="{% url 'notes_mine:mynotes' %}">My Notes</a>
             <a href="{% url 'notes_mine:my-new-note' %}">New Note</a>
+            <a href="#">New Category</a>
 
             <form action="{% url 'notes_mine:search' %}" method="get">
               <input type="search" placeholder="Search" aria-label="Search" name="query">

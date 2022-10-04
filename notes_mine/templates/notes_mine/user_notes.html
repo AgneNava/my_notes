@@ -13,6 +13,12 @@
           <img src="https://via.placeholder.com/100x50" class="card-img-top">
         {% endif %}
         <h4>{{note.title}}</h4>
+        {% if note.category %}
+          <h5>{{note.category.name}}</h5>
+        {% else %}
+          <p>no category selected</p>
+        {% endif %}    
+        
         <p>{{note.text}}</p>
         
                     

@@ -9,7 +9,7 @@ class Note(models.Model):
   title = models.CharField(_('Title'), max_length=200)
   photo = models.ImageField(_('Photo'), null=True, blank=True, upload_to="images",)
   text = models.TextField(_('Text'), max_length=2000)
-  category = models.ManyToManyField('Category')
+  category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, blank=True, related_name='category', help_text='Please choose category')
   user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
   def __str__(self):

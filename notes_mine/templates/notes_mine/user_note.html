@@ -3,13 +3,21 @@
 {% block content %}
     <h1>My note preview:</h1>
     <hr>
-        <ul>
+    {% if object.photo %}
+        <img src="{{ object.photo.url }}" class="card-img-top" alt="pic">
+    {% else %}
+        <p>no photo</p>
+    {% endif %}
+    <h3>{{object.title}}</h3>
+    <h4>{{object.category}}</h4>
+    <p>{{object.text}}</p>
+    <ul>
         <!-- <img class="rounded-circle" src="{{object.reader.profilis.nuotrauka.url}}"> -->
-        <li><strong>{{object.title}}</strong></li>
+        <!-- <li><strong>{{object.title}}</strong></li>
         <li><img src="{{object.photo}}" alt="pic"></li>
         <li> {{object.photo}}</li>
         <li> {{object.category}}</li>
-        <li> {{object.text}}</li>
+        <li> {{object.text}}</li> -->
         
         {% if object.user == user %}
         <div>
