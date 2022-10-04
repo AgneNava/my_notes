@@ -134,7 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # media folder settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'notes_mine/media')
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 # print(MEDIA_ROOT) - nevenkite padebuginti, bus lengviau nepasiklysti django filesystem džiunglėse
 
 LOGIN_REDIRECT_URL = '/'

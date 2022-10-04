@@ -2,8 +2,8 @@ from multiprocessing import context
 from django.urls import reverse, reverse_lazy
 from turtle import title
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
-from django.views import generic
+from django.http import HttpResponse, HttpResponseRedirect
+from django.views import generic, View
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.contrib.auth.forms import User
@@ -66,6 +66,7 @@ def search(request):
 
 class UserNotesListView(LoginRequiredMixin,generic.ListView):
     model = Note
+    context_object_name = 'note_list'
     template_name ='notes_mine/user_notes.html'
    
     def get_queryset(self):
@@ -113,3 +114,21 @@ class NoteDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
     def test_func(self):
         note = self.get_object()
         return self.request.user == note.user
+
+# @login_required
+# def note_create(request):
+#     if request.method == 'POST':
+#         form = UserNoteCreateForm(request.POST, request.FILES)
+        
+#         if form.is_valid():
+#             form.save()
+#             return redirect('success')
+
+#     else:
+#         form = UserNoteCreateForm()
+
+    
+#     return render(request, 'notes_mine/user_note_form.html', {'form': form})
+
+# def success(request):
+#     return HttpResponse('successfully uploaded')    
