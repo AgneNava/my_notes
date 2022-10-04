@@ -14,17 +14,17 @@
                     
             {% if note.user == user %}
               <div>
-                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">Edit</a>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-note-update' note.id%}">Edit</a>
               </div>
             {% endif %}
           <br/>
-          <a class="btn btn-primary" href="#" role="button">Preview</a>
+          <a class="btn btn-primary" href="{% url 'notes_mine:my-note' note.id%}" role="button">Preview</a>
         </ul>
       {% endfor %}
     {% else %}
-      <p>There are no notes created yet. You can start here: <a class="btn btn-primary" href="#" role="button">CREATE</a></p>
+      <p>There are no notes created yet. You can start here: <a class="btn btn-primary" href="{% url 'notes_mine:my-new-note' %}" role="button">CREATE</a></p>
     {% endif %}
 
-  <a class="nav-link" href="#">'New note:'</a>
+  <a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">'New note:'</a>
   
 {% endblock %}
