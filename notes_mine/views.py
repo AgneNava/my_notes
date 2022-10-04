@@ -115,20 +115,16 @@ class NoteDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
         note = self.get_object()
         return self.request.user == note.user
 
-# @login_required
-# def note_create(request):
-#     if request.method == 'POST':
-#         form = UserNoteCreateForm(request.POST, request.FILES)
-        
-#         if form.is_valid():
-#             form.save()
-#             return redirect('success')
 
-#     else:
-#         form = UserNoteCreateForm()
+class UserCatListView(LoginRequiredMixin,generic.ListView):
+    model = Category
+    context_object_name = 'cat_list'
+    template_name ='notes_mine/user_categories.html'
+   
+    # def get_queryset(self):
+    #     return Category.objects.filter(user=self.request.user)
 
-    
-#     return render(request, 'notes_mine/user_note_form.html', {'form': form})
 
-# def success(request):
-#     return HttpResponse('successfully uploaded')    
+class UserCatDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Category
+    template_name = 'notes_mine/user_categories.html'

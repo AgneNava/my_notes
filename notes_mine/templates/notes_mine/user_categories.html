@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+  <h3>My categories:</h3>
+    {% if cat_list %}
+      {% for category in cat_list %}
+        <li><a href="#">{{ category.name }}</a></li>
+      {% endfor %}
+    {% else %}
+      <h4>No Categories yet</h4>
+    {% endif %}
+{% endblock %}

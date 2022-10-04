@@ -1,10 +1,3 @@
-from django.contrib import admin
-from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
-from .views import *
-
-
 from django.urls import path
 
 from . import views
@@ -18,5 +11,6 @@ urlpatterns = [
     path('mynotes/new', views.UserNoteCreateView.as_view(), name='my-new-note'),
     path('mynotes/<int:pk>/update', views.NoteUpdateView.as_view(), name='my-note-update'),
     path('mynotes/<int:pk>/delete', views.NoteDeleteView.as_view(), name='my-note-delete'),
-    path('search/', views.search, name='search'),    
+    path('search/', views.search, name='search'),
+    path('mycategories/', views.UserCatListView.as_view(), name='mycategories')    
 ]
