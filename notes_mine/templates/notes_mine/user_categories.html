@@ -4,11 +4,17 @@
 
 {% block content %}
   <h3>My categories:</h3>
-    {% if cat_list %}
-      {% for category in cat_list %}
+    {% if categories %}
+      {% for category in categories %}
         <li><a href="#">{{ category.name }}</a></li>
       {% endfor %}
     {% else %}
       <h4>No Categories yet</h4>
     {% endif %}
+
+    <h1>Test</h1>
+<!-- 
+    {% if object.user == user %}
+      <a href="#">New Category</a>
+    {% endif %} -->
 {% endblock %}

@@ -118,11 +118,11 @@ class NoteDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
 
 class UserCatListView(LoginRequiredMixin,generic.ListView):
     model = Category
-    context_object_name = 'cat_list'
+    context_object_name = 'categories'
     template_name ='notes_mine/user_categories.html'
    
-    # def get_queryset(self):
-    #     return Category.objects.filter(user=self.request.user)
+    def get_queryset(self):
+        return Category.objects.filter(user=self.request.user)
 
 
 class UserCatDetailView(LoginRequiredMixin, generic.DetailView):

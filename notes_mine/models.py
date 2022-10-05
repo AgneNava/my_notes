@@ -27,6 +27,7 @@ class Note(models.Model):
 
 class Category(models.Model):
   name = models.CharField(_('Name'), max_length=200)
+  user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
   def __str__(self):
       return self.name
