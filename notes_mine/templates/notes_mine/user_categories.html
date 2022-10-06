@@ -3,18 +3,41 @@
 {% load i18n %}
 
 {% block content %}
+
+
   <h3>My categories:</h3>
     {% if categories %}
       {% for category in categories %}
-        <li><a href="#">{{ category.name }}</a></li>
+        <li><a href="{% url 'notes_mine:my-category' category.id %}">{{ category.name }}</a></li>
       {% endfor %}
     {% else %}
       <h4>No Categories yet</h4>
+   
     {% endif %}
 
-    <h1>Test</h1>
-<!-- 
-    {% if object.user == user %}
-      <a href="#">New Category</a>
-    {% endif %} -->
+    {% if user.is_authenticated %}
+    <a href="#">New Category</a>
+
+    <form action="{% url 'notes_mine:search' %}" method="get">
+      <input type="search" placeholder="Search" aria-label="Search" name="query">
+      <button type="submit">Search</button>
+    </form>
+
+  </div>
+   
+  {% else %}
+
+  <div>
+    <a href="{% url 'login' %}?">Login</a>  
+    <br>
+    <a href="{% url 'notes_mine:register' %}">Register</a>
+  </div>
+    
+{% endif %}
+
+ 
+
+      <h2>test</h2>
+
+    
 {% endblock %}

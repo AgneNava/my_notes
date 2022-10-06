@@ -1,8 +1,81 @@
-<!-- <br>
-<br>
-<h1>Uzrasu puslapis INDEX</h1>
-<h2>Dar papildau</h2> -->
+{% extends "base.html" %}
 
-{% extends "base.html" %} {% block content %} {% for note in notes %}
-<p>{{ note.title }}</p>
-{% endfor %} {% endblock %}
+{% load i18n %}
+
+
+
+
+
+{% block content %}
+
+<div class="create-buttons">
+  <button><a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">New note:</a></button>
+  <button><a class="nav-link" href="#">New Category:</a></button>
+  
+</div>
+
+  <h1 style="color: #3e9ec1;">My notes:</h1>
+    {% if note_list %}
+    <div class="notes-screen">
+      {% for note in note_list %}
+      <div class="note-screen">
+        <hr>
+        {% if note.photo %}
+          <img src="{{ note.photo.url }}" max-width="10px"  class="card-img-top" alt="note_pic">
+        {% else %}
+          <img src="https://via.placeholder.com/100x50" class="card-img-top">
+        {% endif %}
+        <h2>{{note.title}}</h2>
+        {% if note.category %}
+          <h3>{{note.category.name}}</h3>
+        {% else %}
+          <p>no category selected</p>
+        {% endif %}    
+        
+        <p>{{note.text}}</p>
+        
+                    
+        {% if note.user == user %}
+          <div>
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-note-update' note.id%}">Edit</a>
+          </div>
+        {% endif %}
+        <br/>
+        <a class="btn btn-primary" href="{% url 'notes_mine:my-note' note.id%}" role="button">Preview</a>
+        </div>
+      {% endfor %}
+    </div>
+    {% else %}
+      <p>There are no notes created yet. You can start here: <a class="btn btn-primary" href="{% url 'notes_mine:my-new-note' %}" role="button">CREATE</a></p>
+    {% endif %}
+
+ 
+  
+{% endblock %}
+
+
+
+
+
+{% load static %}
+<h1>Knygų sąrašas</h1></br>
+{% if note_list %}
+<div class="row">
+  {% for note in note_list %}
+    <div class="col-md-4 d-flex align-items-stretch">
+      <div class="card mb-4 shadow-sm">
+        {% if note.photo %}
+          <img src="{{ note.photo.url }}" class="card-img-top" alt="...">
+        
+        {% endif %}
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">{{ book.author }}</h6>
+          <p class="card-text"><a href="{{ book.id }}">{{ book.title }}</a></p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% else %}
+  <p>Bibliotekoje knygų nėra.</p>
+{% endif %}

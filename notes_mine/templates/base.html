@@ -6,74 +6,82 @@
     {% endblock %}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
-    />
+    /> -->
     <!-- Add additional CSS in static file -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'notes_mine/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Source+Sans+Pro:wght@200;300;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-
-    <a href="{% url 'notes_mine:register' %}">Test</a>
-
-    <nav>
-      
-        <a href="#">Notes App</a>
-        <a href="#">Language</a>
-        <a href="{% url 'notes_mine:register' %}">Test</a>
-      
+    <header class="main-header">
+      <div class="main-header-logo">
+        <img src="https://findicons.com/files/icons/127/sleek_xp_software/300/notepad.png" alt="logo" />
+        <h1 class="main-header-logo-text">Notes app</h1>
+      </div>
       <div>
-        {% if user.is_authenticated %}
-          <div>
-            <a href="{% url 'notes_mine:profile' %}">{{ user.get_username }} profile</a>
-            <a href="{% url 'notes_mine:mynotes' %}">My Notes</a>
-            <a href="{% url 'notes_mine:my-new-note' %}">New Note</a>
-            <a href="#">New Category</a>
-
+        <nav class="main-header-nav">
+          {% if user.is_authenticated %}
+          <div class="main-header-nav-user">
+            
             <form action="{% url 'notes_mine:search' %}" method="get">
               <input type="search" placeholder="Search" aria-label="Search" name="query">
               <button type="submit">Search</button>
             </form>
-
+            <a href="{% url 'notes_mine:index' %}">Home</a>
+            <a href="{% url 'notes_mine:profile' %}">{{ user.get_username }} profile</a>
+                           
           </div>
            
           {% else %}
-
-          <div>
-            <a href="{% url 'login' %}?">Login</a>  
-            <br>
-            <a href="{% url 'notes_mine:register' %}">Register</a>
-          </div>
+  
+            <div class="main-header-nav-stranger">
+              <a href="#">Language</a>
+              <a href="{% url 'login' %}?">Login</a>  
+              <br>
+              <a href="{% url 'notes_mine:register' %}">Register</a>
+            </div>
             
-        {% endif %}
+          {% endif %}
+        </nav>
       </div>
-
-
-
-    </nav>
-
+      
+    </header>
     
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-2">
-          {% block sidebar %}
-          <ul class="sidebar-nav">
-            <li><a href="{% url 'notes_mine:mynotes' %}">Home</a></li>
-            <li><a href="#">My notes</a></li>
-            <li><a href="{% url 'notes_mine:mycategories' %}">My categories</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'notes_mine:register' %}">Register</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-          </ul>
-          {% endblock %}
-        </div>
-        <div class="col-sm-10">{% block content %}
-          {% endblock %}</div>
+    
+    
+    <div class="main-section">
+      
+      <div class="main-section sidebar">
+        {% block sidebar %}
+        <ul class="">
+          <li><a href="{% url 'notes_mine:index' %}">My Notes</a></li>
+          <li><a href="{% url 'notes_mine:my-new-note' %}">New Note</a></li>
+          <li><a href="{% url 'notes_mine:mycategories' %}">My categories</a></li>
+          <li><a href="#">Trash</a></li>              
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+        {% endblock %}
       </div>
+      <div class="main-section front">
+        {% block content %}
+        {% endblock %}
+      </div>
+      
     </div>
     
   </body>

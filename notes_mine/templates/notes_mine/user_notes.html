@@ -2,19 +2,32 @@
 
 {% load i18n %}
 
+
+
+
+
 {% block content %}
-  <h3>My notes:</h3>
+
+  <div class="create-buttons">
+    <button><a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">New note</a></button>
+    <button><a class="nav-link" href="#">New Category</a></button>
+    
+  </div>
+
+  <h1 style="color: #3e9ec1;">My notes</h1>
     {% if note_list %}
+    <div class="notes-screen">
       {% for note in note_list %}
+      <div class="note-screen">
         <hr>
         {% if note.photo %}
           <img src="{{ note.photo.url }}" max-width="10px"  class="card-img-top" alt="note_pic">
         {% else %}
           <img src="https://via.placeholder.com/100x50" class="card-img-top">
         {% endif %}
-        <h4>{{note.title}}</h4>
+        <h2>{{note.title}}</h2>
         {% if note.category %}
-          <h5>{{note.category.name}}</h5>
+          <h3>{{note.category.name}}</h3>
         {% else %}
           <p>no category selected</p>
         {% endif %}    
@@ -29,15 +42,14 @@
         {% endif %}
         <br/>
         <a class="btn btn-primary" href="{% url 'notes_mine:my-note' note.id%}" role="button">Preview</a>
-        
+        </div>
       {% endfor %}
+    </div>
     {% else %}
       <p>There are no notes created yet. You can start here: <a class="btn btn-primary" href="{% url 'notes_mine:my-new-note' %}" role="button">CREATE</a></p>
     {% endif %}
 
-  <a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">New note:</a>
-
-  <a class="nav-link" href="#">New Category:</a>
+ 
   
 {% endblock %}
 

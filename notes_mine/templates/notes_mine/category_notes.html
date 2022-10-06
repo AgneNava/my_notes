@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container author">
+    <h4>{{ category.name }} notes list:</h4>
+    <hr/>
+        
+    {% for i in category.notes.all %}
+       <li>{{ i.title }}</li> 
+    {% endfor %}
+    </div>
+{% endblock %}

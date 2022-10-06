@@ -1,4 +1,5 @@
 from multiprocessing import context
+from unicodedata import category
 from django.urls import reverse, reverse_lazy
 from turtle import title
 from django.shortcuts import render, get_object_or_404, redirect
@@ -19,9 +20,9 @@ from .forms import RegistrationForm, UserUpdateForm, ProfileUpdateForm, UserNote
 
 # Create your views here.
 
-def index(request):
-    notes = Note.objects.all()
-    return render(request, 'notes_mine/index.html', context={'notes': notes})
+# def index(request):
+#     notes = Note.objects.all()
+#     return render(request, 'notes_mine/index.html', context={'notes': notes})
 
 
 
@@ -67,7 +68,7 @@ def search(request):
 class UserNotesListView(LoginRequiredMixin,generic.ListView):
     model = Note
     context_object_name = 'note_list'
-    template_name ='notes_mine/user_notes.html'
+    template_name ='notes_mine/index.html'
    
     def get_queryset(self):
         return Note.objects.filter(user=self.request.user)
@@ -125,6 +126,20 @@ class UserCatListView(LoginRequiredMixin,generic.ListView):
         return Category.objects.filter(user=self.request.user)
 
 
-class UserCatDetailView(LoginRequiredMixin, generic.DetailView):
-    model = Category
-    template_name = 'notes_mine/user_categories.html'
+# class UserCatDetailView(LoginRequiredMixin, generic.DetailView):
+#     model = Category
+#     template_name = 'notes_mine/user_categories.html'
+
+# class CatNotesListView(LoginRequiredMixin,generic.ListView):
+#     model = Note
+#     context_object_name = 'category_notes'
+#     template_name = "notes_mine/category_notes.html"
+
+#     def get_queryset(self):
+#         return Note.objects.filter(user=self.request.user).order_by('category__name')
+
+@login_required
+def category_notes(request, category_id):
+    selected_category = get_object_or_404(Category, pk=category_id)
+    context = {'category': selected_category}
+    return render(request, "notes_mine/category_notes.html", context)
