@@ -20,9 +20,9 @@ from .forms import RegistrationForm, UserUpdateForm, ProfileUpdateForm, UserNote
 
 # Create your views here.
 
-# def index(request):
-#     notes = Note.objects.all()
-#     return render(request, 'notes_mine/index.html', context={'notes': notes})
+def index(request):
+    notes = Note.objects.all()
+    return render(request, 'notes_mine/index.html', context={'notes': notes})
 
 
 
@@ -68,7 +68,7 @@ def search(request):
 class UserNotesListView(LoginRequiredMixin,generic.ListView):
     model = Note
     context_object_name = 'note_list'
-    template_name ='notes_mine/index.html'
+    template_name ='notes_mine/user_notes.html'
    
     def get_queryset(self):
         return Note.objects.filter(user=self.request.user)

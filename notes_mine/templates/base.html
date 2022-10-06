@@ -43,7 +43,7 @@
               <button type="submit">Search</button>
             </form>
             <a href="{% url 'notes_mine:index' %}">Home</a>
-            <a href="{% url 'notes_mine:profile' %}">{{ user.get_username }} profile</a>
+            <a href="{% url 'notes_mine:profile' %}">{{ user.get_username }} <ion-icon name="person"></ion-icon></a>
                            
           </div>
            
@@ -68,21 +68,48 @@
       
       <div class="main-section sidebar">
         {% block sidebar %}
+
+        <div>
+          <ion-icon name="receipt-outline"></ion-icon>
+          <a href="{% url 'notes_mine:mynotes' %}">My Notes</a>
+        </div>
+        <div>          
+          <ion-icon name="add-circle-outline"></ion-icon>
+          <a href="{% url 'notes_mine:my-new-note' %}">New Note</a>
+        </div>
+        <div>
+          <ion-icon name="list-outline"></ion-icon>
+          <a href="{% url 'notes_mine:mycategories' %}">My categories</a>
+        </div>
+        <div>
+          <ion-icon name="trash-outline"></ion-icon>
+          <a href="#">Trash</a>
+        </div>
+        <div>
+          <ion-icon name="log-out-outline"></ion-icon>
+          <a href="{% url 'logout' %}">Logout</a>
+        </div>
+<!-- 
         <ul class="">
-          <li><a href="{% url 'notes_mine:index' %}">My Notes</a></li>
+          <li><a href="{% url 'notes_mine:mynotes' %}">My Notes</a></li>
           <li><a href="{% url 'notes_mine:my-new-note' %}">New Note</a></li>
           <li><a href="{% url 'notes_mine:mycategories' %}">My categories</a></li>
           <li><a href="#">Trash</a></li>              
           <li><a href="{% url 'logout' %}">Logout</a></li>
-        </ul>
+        </ul> -->
+
+        
         {% endblock %}
       </div>
+
+
       <div class="main-section front">
         {% block content %}
         {% endblock %}
       </div>
       
     </div>
-    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>

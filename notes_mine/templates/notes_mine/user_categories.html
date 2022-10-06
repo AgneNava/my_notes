@@ -4,24 +4,26 @@
 
 {% block content %}
 
-
-  <h3>My categories:</h3>
+{% load static %}
+  <h1 style="color: #3e9ec1;">My categories:</h1>
     {% if categories %}
       {% for category in categories %}
-        <li><a href="{% url 'notes_mine:my-category' category.id %}">{{ category.name }}</a></li>
+        <li><a href="{% url 'notes_mine:my-category' category.id %}" class="listed-ancor-items">{{ category.name }}</a></li>
+        
       {% endfor %}
     {% else %}
       <h4>No Categories yet</h4>
    
     {% endif %}
-
+     <hr>
     {% if user.is_authenticated %}
-    <a href="#">New Category</a>
 
-    <form action="{% url 'notes_mine:search' %}" method="get">
-      <input type="search" placeholder="Search" aria-label="Search" name="query">
-      <button type="submit">Search</button>
-    </form>
+    <div class="create-buttons">
+      <button><a href="#" >>New Category</h2></a></button>
+    </div>
+    
+
+    
 
   </div>
    
@@ -36,8 +38,5 @@
 {% endif %}
 
  
-
-      <h2>test</h2>
-
     
 {% endblock %}

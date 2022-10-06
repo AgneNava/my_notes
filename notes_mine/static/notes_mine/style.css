@@ -42,11 +42,12 @@ header img {
   flex-direction: row;
 }
 
-.main-header-nav-stranger > a, .main-header-nav-user > a {
+.main-header-nav-stranger > a, .main-header-nav-user > a, .listed-ancor-items {
   text-decoration: none;
   font-size: 1.5rem;
   color: #555555;
   padding-left: 1rem;
+  
 }
 
 .main-header-nav-stranger, .main-header-nav-user a:last-child {
@@ -60,13 +61,33 @@ header img {
 
 .main-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .main-section .sidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   color: #3e9ec1;
   padding: 1.5rem;
-  width: 30%;
+  width: 90%;
+}
+
+.main-section .sidebar div {
+  display: flex;
+  flex-direction: row;  
+}
+
+.main-section .sidebar div > ion-icon {
+  height: 100%;
+  padding-right: 0.3rem;
+}
+
+.main-section .sidebar div > a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #555555;
+  padding-right: 1rem;  
 }
 
 .main-section .front {
@@ -79,8 +100,7 @@ header img {
   display: flex;
   flex-direction: row;
   align-content: stretch;
-  justify-content: center;
-  
+  justify-content: space-around;
   padding: 1rem;
   flex-wrap: wrap;
   
@@ -90,11 +110,12 @@ header img {
   display: flex;
   flex-direction: column;
   width: 25%;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   margin: 2rem;
   border: 1px solid #3e9ec1;
-  border-style: groove;
-  border-radius: 0.5rem;
+  color: #555555;  
+  /* border-style: groove; */
+  /* border-radius: 0.5rem; */
 }
 
 .note-screen > img {
@@ -105,20 +126,27 @@ header img {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 2.5rem;
+  /* padding-top: 2.5rem; */
 }
 .create-buttons > button {
   background-color: #3e9ec1;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   font-size: 1.5rem;
-  
   padding: 1rem;
   width: 20%;
-  margin: 1rem;
+  margin: 0.3rem;
   border: none;
 }
 
 .create-buttons button > a {
   color: whitesmoke;
   text-decoration: none;
+
+}
+
+
+
+.title-style {
+  color: #3e9ec1;
+  padding-left: 3rem;
 }

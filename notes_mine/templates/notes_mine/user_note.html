@@ -8,21 +8,21 @@
     {% else %}
         <p>no photo</p>
     {% endif %}
-    <h3>{{object.title}}</h3>
+    <h2 class="title-style">{{object.title}}</h2>
     <h4>{{object.category}}</h4>
     <p>{{object.text}}</p>
     <ul>
-        <!-- <img class="rounded-circle" src="{{object.reader.profilis.nuotrauka.url}}"> -->
-        <!-- <li><strong>{{object.title}}</strong></li>
-        <li><img src="{{object.photo}}" alt="pic"></li>
-        <li> {{object.photo}}</li>
-        <li> {{object.category}}</li>
-        <li> {{object.text}}</li> -->
+        
         
         {% if object.user == user %}
-        <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-note-update' object.id %}">Edit</a>
-            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-note-delete' object.id %}">Delete</a>
+        <div class="create-buttons">
+            <button>
+                <a class="nav-link" class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-note-update' object.id %}">Edit</a>
+            </button>
+            <button>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-note-delete' object.id %}">Delete</a>
+            </button>
+            
         </div>
         {% endif %}
         <br/>
