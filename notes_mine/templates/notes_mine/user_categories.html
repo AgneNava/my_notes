@@ -5,38 +5,57 @@
 {% block content %}
 
 {% load static %}
-  <h1 style="color: #3e9ec1;">My categories:</h1>
+
+<div class="create-buttons">
+  <button><a class="nav-link" href="{% url 'notes_mine:my-new-category' %}">New category</a></button>
+  
+  
+</div>
+
+  <h1 class="title-style">My categories</h1>
     {% if categories %}
+    <div class="notes-screen">
       {% for category in categories %}
-        <li><a href="{% url 'notes_mine:my-category' category.id %}" class="listed-ancor-items">{{ category.name }}</a></li>
+      <div class="note-screen">
+        <hr>
         
+        <div class="create-buttons">
+          <button style="width: 50%;">
+            <a href="{% url 'notes_mine:my-category' category.id %}" class="listed-ancor-items">{{ category.name }}</a>
+          </button>
+        </div>
+        
+        
+        
+                    
+        {% if category.user == user %}
+          <div class="create-buttons">
+            <button style="width: 50%;">
+              <a href="{% url 'notes_mine:my-category-update' category.id%}">EDIT</a>
+            </button>
+            <button>
+              <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-category-delete' category.id %}">Delete</a>
+          </button>
+          </div>
+        {% endif %}
+        <br/>
+        <!-- <div class="create-buttons">
+          <button style="width: 50%;">
+            <a href="{% url 'notes_mine:my-category-preview' category.id%}" role="button">PREVIEW</a>
+          </button>
+        </div> -->
+        
+        </div>
       {% endfor %}
-    {% else %}
-      <h4>No Categories yet</h4>
-   
-    {% endif %}
-     <hr>
-    {% if user.is_authenticated %}
-
-    <div class="create-buttons">
-      <button><a href="#" >>New Category</h2></a></button>
     </div>
-    
-
-    
-
-  </div>
-   
-  {% else %}
-
-  <div>
-    <a href="{% url 'login' %}?">Login</a>  
-    <br>
-    <a href="{% url 'notes_mine:register' %}">Register</a>
-  </div>
-    
-{% endif %}
+    {% else %}
+      <p>There are no categories yet. You can start here: <a href="{% url 'notes_mine:my-new-category' %}" role="button">CREATE</a></p>
+    {% endif %}
 
  
-    
+  
 {% endblock %}
+
+
+
+

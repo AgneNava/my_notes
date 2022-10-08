@@ -1,5 +1,5 @@
-from multiprocessing import context
-from unicodedata import category
+# from multiprocessing import context
+# from unicodedata import category
 from django.urls import reverse, reverse_lazy
 from turtle import title
 from django.shortcuts import render, get_object_or_404, redirect
@@ -16,7 +16,7 @@ from django.utils.translation import gettext as _
 from django.views.generic.edit import FormMixin
 
 from .models import Note, Profile, Category
-from .forms import RegistrationForm, UserUpdateForm, ProfileUpdateForm, UserNoteCreateForm
+from .forms import RegistrationForm, UserCatCreateForm, UserUpdateForm, ProfileUpdateForm, UserNoteCreateForm
 
 # Create your views here.
 
@@ -126,20 +126,57 @@ class UserCatListView(LoginRequiredMixin,generic.ListView):
         return Category.objects.filter(user=self.request.user)
 
 
-# class UserCatDetailView(LoginRequiredMixin, generic.DetailView):
-#     model = Category
-#     template_name = 'notes_mine/user_categories.html'
+class UserCatDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Category
+    template_name = 'notes_mine/user_category_preview.html'
 
-# class CatNotesListView(LoginRequiredMixin,generic.ListView):
-#     model = Note
-#     context_object_name = 'category_notes'
-#     template_name = "notes_mine/category_notes.html"
+class UserCatCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Category
+    form_class = UserCatCreateForm
+    template_name = 'notes_mine/user_category_form.html'
 
-#     def get_queryset(self):
-#         return Note.objects.filter(user=self.request.user).order_by('category__name')
+    def get_success_url(self):
+        return reverse('notes_mine:mycategories')
 
-@login_required
-def category_notes(request, category_id):
-    selected_category = get_object_or_404(Category, pk=category_id)
-    context = {'category': selected_category}
-    return render(request, "notes_mine/category_notes.html", context)
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class UserCatUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Category
+    fields = ['name']
+    template_name = 'notes_mine/user_category_form.html'
+
+    def get_success_url(self):
+        return reverse('notes_mine:mycategories')
+
+    def test_func(self):
+        note = self.get_object()
+        return self.request.user == note.user
+
+class UserCatDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = Category
+    
+    template_name = 'notes_mine/user_category_delete.html'
+  
+    def get_success_url(self):
+        return reverse('notes_mine:mycategories')
+
+    def test_func(self):
+        note = self.get_object()
+        return self.request.user == note.user
+
+
+class CatNotesListView(LoginRequiredMixin,generic.ListView):
+    model = Note
+    context_object_name = 'category_notes'
+    template_name = "notes_mine/category_notes.html"
+
+    def get_queryset(self):
+        return Note.objects.filter(category='7')
+
+
+    
+
+   
+

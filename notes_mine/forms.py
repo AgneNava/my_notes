@@ -46,3 +46,11 @@ class UserNoteCreateForm(forms.ModelForm):
   class Meta:
     model = Note
     fields = ['title', 'photo', 'category', 'text']
+
+  
+class UserCatCreateForm(forms.ModelForm):
+  class Meta:
+    model = Category
+    fields = ['name']
+
+ 

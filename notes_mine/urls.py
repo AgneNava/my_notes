@@ -13,6 +13,11 @@ urlpatterns = [
     path('mynotes/<int:pk>/delete', views.NoteDeleteView.as_view(), name='my-note-delete'),
     path('search/', views.search, name='search'),
     path('mycategories/', views.UserCatListView.as_view(), name='mycategories'), 
-    path('mycategories/<int:category_id>', views.category_notes, name='my-category')
+    # path('mycategories/<int:category_id>', views.category_notes, name='my-category'),
+    path('mycategories/<int:pk>', views.CatNotesListView.as_view(), name='my-category'),
+    path('mycategories/new', views.UserCatCreateView.as_view(), name='my-new-category'),
+    path('mycategories/<int:pk>/update', views.UserCatUpdateView.as_view(), name='my-category-update'),
+    path('mynotes/<int:pk>/preview', views.UserCatDetailView.as_view(), name='my-category-preview'),
+    path('mycategories/<int:pk>/delete', views.UserCatDeleteView.as_view(), name='my-category-delete'),
        
 ]

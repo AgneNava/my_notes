@@ -1,12 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container author">
-    <h4>{{ category.name }} notes list:</h4>
+  
+    
     <hr/>
-        
-    {% for i in category.notes.all %}
-       <li>{{ i.title }}</li> 
-    {% endfor %}
+    <h2 class="title-style">No Notes yet. Start here:</h2>
+    <div class="create-buttons">
+        <button><a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">New note</a></button>
+                
     </div>
+
+    <p> Category {{ i.category }} notes:</p>   
+    
+    {% if category_notes %}
+        <p>{{ category_notes.category }}</p>
+
+        {% for i in category_notes %}
+            {% if i.user == user %}
+                <li>{{ i.title }}</li> 
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p>no category selected</p>
+    {% endif %}
+
+        
+    
+
 {% endblock %}

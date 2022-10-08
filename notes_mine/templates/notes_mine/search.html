@@ -3,16 +3,21 @@
 {% block content %}
   <h1>Paieškos pagal "{{query}}" rezultatai:</h1>
   </br>
-  {% if notes %}
-  <ul>
-    {% for note in notes %}
-      <li>
-        <a href="{% url 'notes_mine:my-note' note.id %}">{{ note.title }}</a> ({{note.category.name}})
-      </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-    <p>Oops. Nieko neradome :(</p>
-  {% endif %}
+  
+    {% if notes %}
+    
+    <ul>
+      {% for note in notes %}
+        
+          <li>
+            <a href="{% url 'notes_mine:my-note' note.id %}">{{ note.title }}</a> ({{note.category.name}})
+          </li>
+       
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>Search returned no results..</p>
+    {% endif %}
+
 
   {% endblock %}
