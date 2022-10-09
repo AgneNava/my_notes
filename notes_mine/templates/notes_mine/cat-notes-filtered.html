@@ -3,16 +3,33 @@
 {% block content %}
 
 
-    <form method="get">
+    <form class="main-form" method="get">
         {{ filter.form.as_p }}
-        <input type="submit" />
+        <input class="btn" type="submit" />
     </form>
+
+    <div class="notes-screen">
     {% for obj in filter.qs %}
         {% if obj.user == user %}
-            <a href="{% url 'notes_mine:my-note' obj.id %}">{{ obj.name }} - {{ obj.title }}</a>
-            <br />
+        <div class="note-screen">
+            {% if obj.photo %}
+          <img src="{{ obj.photo.url }}" max-width="10px"  class="card-img-top" alt="note_pic">
+        {% else %}
+          <img src="https://via.placeholder.com/100x50" class="card-img-top">
+        {% endif %}
+        <h2>{{obj.title}}</h2>
+        {% if obj.category %}
+          <h3>{{obj.category.name}}</h3>
+        {% else %}
+          <p>no category selected</p>
+        {% endif %}    
+        
+        <p>{{obj.text}}</p>
+        </div>
+            
         
         {% endif %}
     {% endfor %}
+</div>
 
 {% endblock %}

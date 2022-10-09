@@ -2,19 +2,27 @@
 
 {% block content %}
     
-    <div class="content-section">
+    <div class="form-content-section">
         <form class="main-form" method="POST" enctype='multipart/form-data'>
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">New note</legend>
-                {{ form }}
+            <fieldset class="form-group-top">
+                <legend class="">New note</legend>
+                    <ul class="my-form-style">
+                        <li id='title' class="form-list"> Title: {{ form.title }}</li>
+                        <li id='photo' class="form-list">Photo: {{ form.photo }}</li>
+                        <li id='category' class="form-list">Category: {{ form.category }}</li>
+                        <li id='text' class="form-list">Text: {{ form.text }}</li>
+                    </ul>
             </fieldset>
             
             <div class="form-group">
-                <button class="btn-simple" type="submit">Save</button>
+                <button class="btn" type="submit">Save</button>
             </div>
             
         </form>
     </div>
     
 {% endblock content %}
+
+
+

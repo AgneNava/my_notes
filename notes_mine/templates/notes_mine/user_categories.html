@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 
-{% load i18n %}
 
 {% block content %}
 
 {% load static %}
 
-<div class="create-buttons">
-  <button><a class="nav-link" href="{% url 'notes_mine:my-new-category' %}">New category</a></button>
-  
-  
-</div>
+  <div class="create-buttons">
+    <button class="btn"><a class="nav-link" href="{% url 'notes_mine:my-new-category' %}">New category</a></button>
+    
+    
+  </div>
+
+ 
+
 
   <h1 class="title-style">My categories</h1>
     {% if categories %}

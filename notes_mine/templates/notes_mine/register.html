@@ -17,8 +17,9 @@
         {% endfor %}
     {% endif %}
 
-    <div class="container register">
-        <h3>Registration</h3><br/>
+    <div class="form-content-section">
+        <h1 class="title-style">Registration</h1><br/>
+        <fieldset class="form-group-top" >
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
@@ -40,9 +41,10 @@
                 <label for="password2">Repeat password</label>
                 <input name="password2" type="password" class="form-control" id="password2" aria-describedby="pwd2Help">
             </div>
-            <button type="submit" class="btn btn-primary register-button">Register</button>
+        </fieldset>
+            <button type="submit" class="btn">Register</button>
         </form>
-        <p>If you have already registered: <a href="{% url 'login' %}"><strong>login.</strong></a></p>
+        <h3 style="color: #555555;">If you already have an account - register: <button class="btn"> <a href="{% url 'login' %}"><strong>login.</strong></a> </button> </h3>
     </div>
 
 {% endblock %}

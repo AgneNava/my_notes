@@ -7,8 +7,8 @@
 {% load static %}
 
 <div class="create-buttons">
-  <button><a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">New note</a></button>
-  <button><a class="nav-link" href="#">New Category</a></button>
+  <button class="btn"><a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">New note</a></button>
+  <button class="btn"><a class="nav-link" href="{% url 'notes_mine:my-new-category' %}">New Category</a></button>
   
 </div>
 
@@ -17,7 +17,7 @@
     <div class="notes-screen">
       {% for note in note_list %}
       <div class="note-screen">
-        <hr>
+        
         {% if note.photo %}
           <img src="{{ note.photo.url }}" max-width="10px"  class="card-img-top" alt="note_pic">
         {% else %}
@@ -35,7 +35,7 @@
                     
         {% if note.user == user %}
           <div class="create-buttons">
-            <button style="width: 50%;">
+            <button class="btn" style="width: 50%;">
               <a href="{% url 'notes_mine:my-note-update' note.id%}">EDIT</a>
             </button>
               
@@ -43,7 +43,7 @@
         {% endif %}
         <br/>
         <div class="create-buttons">
-          <button style="width: 50%;">
+          <button class="btn" style="width: 50%;">
             <a href="{% url 'notes_mine:my-note' note.id%}" role="button">PREVIEW</a>
           </button>
         </div>

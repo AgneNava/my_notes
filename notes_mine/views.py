@@ -155,7 +155,7 @@ class UserCatCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'notes_mine/user_category_form.html'
 
     def get_success_url(self):
-        return reverse('notes_mine:mycategories')
+        return reverse('notes_mine:mycategories-edit')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -167,7 +167,7 @@ class UserCatUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateV
     template_name = 'notes_mine/user_category_form.html'
 
     def get_success_url(self):
-        return reverse('notes_mine:mycategories')
+        return reverse('notes_mine:mycategories-edit')
 
     def test_func(self):
         note = self.get_object()
@@ -179,20 +179,13 @@ class UserCatDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteV
     template_name = 'notes_mine/user_category_delete.html'
   
     def get_success_url(self):
-        return reverse('notes_mine:mycategories')
+        return reverse('notes_mine:mycategories-edit')
 
     def test_func(self):
         note = self.get_object()
         return self.request.user == note.user
 
 
-# class CatNotesListView(LoginRequiredMixin,generic.ListView):
-#     model = Note
-#     context_object_name = 'category_notes'
-#     template_name = "notes_mine/category_notes.html"
-
-#     def get_queryset(self):
-#         return Note.objects.filter(user=self.request.user).order_by('category__pk')
 
 class CatNotesListView(LoginRequiredMixin,generic.ListView):
     model = Note
@@ -203,6 +196,7 @@ class CatNotesListView(LoginRequiredMixin,generic.ListView):
         return Note.objects.filter(user=self.request.user).order_by('category__name')
 
 
+@login_required
 def notes_list(request):
     filter = CatNotesFilter(request.GET, queryset=Note.objects.all())
     return render(request, 'notes_mine/cat-notes-filtered.html', {'filter': filter})

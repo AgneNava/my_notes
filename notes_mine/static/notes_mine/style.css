@@ -40,6 +40,7 @@ header img {
 .main-header-nav-stranger, .main-header-nav-user {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .main-header-nav-stranger > a, .main-header-nav-user > a, .listed-ancor-items {
@@ -122,30 +123,6 @@ header img {
   width: 100%;
 }
 
-.create-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  /* padding-top: 2.5rem; */
-}
-.create-buttons > button {
-  background-color: #3e9ec1;
-  /* border-radius: 0.5rem; */
-  font-size: 1.5rem;
-  padding: 1rem;
-  width: 20%;
-  margin: 0.3rem;
-  border: none;
-}
-
-.create-buttons button > a {
-  color: whitesmoke;
-  text-decoration: none;
-
-}
-
-
-
 .title-style {
   color: #3e9ec1;
   padding-left: 3rem;
@@ -154,3 +131,99 @@ header img {
 .content-section {
   width: 60%;
 }
+
+.create-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* padding-top: 2.5rem; */
+}
+.create-buttons > button {
+  background-color: #3e9ec1;
+  border-radius: 0.2rem; 
+  font-size: 1.5rem;
+  padding: 1rem;
+  width: 15%;
+  margin: 0.3rem;
+  border: none;
+} 
+
+.create-buttons button > a, h3 button > a {
+  color: whitesmoke;
+  text-decoration: none;
+
+}
+
+.create-buttons .btn, form .btn, p .btn, .btn {
+  background: #3e9ec1;
+  background-image: -webkit-linear-gradient(top, #56c7f0, #3e9ec1);
+  background-image: -moz-linear-gradient(top, #56c7f0, #3e9ec1);
+  background-image: -ms-linear-gradient(top, #56c7f0, #3e9ec1);
+  background-image: -o-linear-gradient(top, #56c7f0, #3e9ec1);
+  background-image: linear-gradient(to bottom, #56c7f0, #3e9ec1);
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  font-family: Poppins;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+}
+
+.btn:hover {
+  background: #66c4e6;
+  background-image: -webkit-linear-gradient(top, #8dd8f4, #66c4e6);
+  background-image: -moz-linear-gradient(top, #8dd8f4, #66c4e6);
+  background-image: -ms-linear-gradient(top, #8dd8f4, #66c4e6);
+  background-image: -o-linear-gradient(top, #8dd8f4, #66c4e6);
+  background-image: linear-gradient(to bottom, #8dd8f4, #66c4e6);
+  text-decoration: none;
+}
+
+
+hr {
+  width: 90%;
+}
+
+.note-prev {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+
+}
+
+.form-group-top {
+  background-color: #ffe2c5;
+  border: none;
+  
+}
+
+.form-group-top legend {
+  font-family: Poppins;
+  font-size: 3rem;
+  color: #3e9ec1;
+}
+
+.form-content-section {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form-group-top {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.my-form-style li input, .my-form-style li textarea {
+  width: 80%;
+  border: none;
+}
+
+.my-form-style li select, .form-group input  {
+  border: none;
+  margin-bottom: 0.5rem;
+}
+
