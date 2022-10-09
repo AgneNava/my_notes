@@ -1,5 +1,6 @@
 # from multiprocessing import context
 # from unicodedata import category
+from unicodedata import category
 from django.urls import reverse, reverse_lazy
 from turtle import title
 from django.shortcuts import render, get_object_or_404, redirect
@@ -18,6 +19,7 @@ from django.views.generic.edit import FormMixin
 
 from .models import Note, Profile, Category
 from .forms import RegistrationForm, UserCatCreateForm, UserUpdateForm, ProfileUpdateForm, UserNoteCreateForm
+from .filters import CatNotesFilter
 
 # Create your views here.
 
@@ -99,7 +101,16 @@ class UserNoteCreateView(LoginRequiredMixin, generic.CreateView):
         kwargs['user'] = self.request.user
         return kwargs
 
-    
+# @login_required
+# def UserNoteCreate(request):
+#     if request.method == 'POST':
+#         form = UserNoteCreateForm(request.POST)
+#         if form.is_valid():
+#             Note.objects.create(title=form.cleaned_data['title'], photo=form.cleaned_data['photo'], category=form.cleaned_data['category'], text=['text'])
+#             return render(request, 'notes_mine/.mynotes.html')
+#     else:
+#         form = UserNoteCreateForm()
+#     return render(request, 'notes_mine/my-new-note.html', {'form': form})
 
 class NoteUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Note
@@ -184,13 +195,16 @@ class UserCatDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteV
 #         return Note.objects.filter(user=self.request.user).order_by('category__pk')
 
 class CatNotesListView(LoginRequiredMixin,generic.ListView):
+    model = Note
     template_name = "notes_mine/category_notes.html"
     context_object_name = 'cat_notes'
 
     def get_queryset(self):
-        return Note.objectsfilter(category__category=self.kwargs['category'])
+        return Note.objects.filter(user=self.request.user).order_by('category__name')
 
 
-
+def notes_list(request):
+    filter = CatNotesFilter(request.GET, queryset=Note.objects.all())
+    return render(request, 'notes_mine/cat-notes-filtered.html', {'filter': filter})
    
 

@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'notes_mine',
     'crispy_forms',
+    'django_filters',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -144,3 +145,4 @@ EMAIL_HOST_USER = 'cae474ba285788'
 EMAIL_HOST_PASSWORD = '0cd1b15e0f1a35'
 EMAIL_PORT = '2525'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

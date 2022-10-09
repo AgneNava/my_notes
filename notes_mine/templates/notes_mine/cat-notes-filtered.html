@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <form method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% for obj in filter.qs %}
+        {% if obj.user == user %}
+            <a href="{% url 'notes_mine:my-note' obj.id %}">{{ obj.name }} - {{ obj.title }}</a>
+            <br />
+        
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

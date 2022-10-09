@@ -42,8 +42,9 @@
               <input type="search" placeholder="Search" aria-label="Search" name="query">
               <button type="submit">Search</button>
             </form>
-            <a href="{% url 'notes_mine:index' %}">Home</a>
+            <a href="{% url 'notes_mine:index' %}"><ion-icon name="home"></ion-icon></a>
             <a href="{% url 'notes_mine:profile' %}">{{ user.get_username }} <ion-icon name="person"></ion-icon></a>
+            <a href="{% url 'logout' %}">Logout <ion-icon name="log-out-outline"></ion-icon></a>
                            
           </div>
            
@@ -74,30 +75,22 @@
           <a href="{% url 'notes_mine:mynotes' %}">My Notes</a>
         </div>
         <div>          
-          <ion-icon name="add-circle-outline"></ion-icon>
+          <ion-icon name="duplicate-outline"></ion-icon>
           <a href="{% url 'notes_mine:my-new-note' %}">New Note</a>
         </div>
         <div>
-          <ion-icon name="list-outline"></ion-icon>
-          <a href="{% url 'notes_mine:mycategories' %}">My categories</a>
+          <ion-icon name="folder-outline"></ion-icon>
+          <a href="{% url 'notes_mine:categorynotes-list' %}">My Categories</a>
+        </div>
+        <div>
+          <ion-icon name="hammer-outline"></ion-icon>
+          <a href="{% url 'notes_mine:mycategories-edit' %}">Edit Categories</a>
         </div>
         <div>
           <ion-icon name="trash-outline"></ion-icon>
           <a href="#">Trash</a>
         </div>
-        <div>
-          <ion-icon name="log-out-outline"></ion-icon>
-          <a href="{% url 'logout' %}">Logout</a>
-        </div>
-<!-- 
-        <ul class="">
-          <li><a href="{% url 'notes_mine:mynotes' %}">My Notes</a></li>
-          <li><a href="{% url 'notes_mine:my-new-note' %}">New Note</a></li>
-          <li><a href="{% url 'notes_mine:mycategories' %}">My categories</a></li>
-          <li><a href="#">Trash</a></li>              
-          <li><a href="{% url 'logout' %}">Logout</a></li>
-        </ul> -->
-
+        
         
         {% endblock %}
       </div>
