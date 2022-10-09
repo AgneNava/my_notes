@@ -150,3 +150,7 @@ header img {
   color: #3e9ec1;
   padding-left: 3rem;
 }
+
+.content-section {
+  width: 60%;
+}

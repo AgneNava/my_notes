@@ -47,6 +47,11 @@ class UserNoteCreateForm(forms.ModelForm):
     model = Note
     fields = ['title', 'photo', 'category', 'text']
 
+  def __init__(self, *args, **kwargs):
+    user = kwargs.pop('user')
+    super(UserNoteCreateForm, self).__init__(*args, **kwargs)
+    self.fields['title'].queryset = Note.objects.filter(user=user)
+
   
 class UserCatCreateForm(forms.ModelForm):
   class Meta:

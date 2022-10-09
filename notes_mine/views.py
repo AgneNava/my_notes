@@ -15,6 +15,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext as _
 from django.views.generic.edit import FormMixin
 
+
 from .models import Note, Profile, Category
 from .forms import RegistrationForm, UserCatCreateForm, UserUpdateForm, ProfileUpdateForm, UserNoteCreateForm
 
@@ -84,14 +85,21 @@ class UserNoteCreateView(LoginRequiredMixin, generic.CreateView):
     form_class = UserNoteCreateForm
     template_name = 'notes_mine/user_note_form.html'
 
-    # Vietoj success_url:
+    
     def get_success_url(self):
         return reverse('notes_mine:mynotes')
 
+    
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+    def get_form_kwargs(self):
+        kwargs = super(UserNoteCreateView, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    
 
 class NoteUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Note
@@ -167,16 +175,22 @@ class UserCatDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteV
         return self.request.user == note.user
 
 
+# class CatNotesListView(LoginRequiredMixin,generic.ListView):
+#     model = Note
+#     context_object_name = 'category_notes'
+#     template_name = "notes_mine/category_notes.html"
+
+#     def get_queryset(self):
+#         return Note.objects.filter(user=self.request.user).order_by('category__pk')
+
 class CatNotesListView(LoginRequiredMixin,generic.ListView):
-    model = Note
-    context_object_name = 'category_notes'
     template_name = "notes_mine/category_notes.html"
+    context_object_name = 'cat_notes'
 
     def get_queryset(self):
-        return Note.objects.filter(category='7')
+        return Note.objectsfilter(category__category=self.kwargs['category'])
 
 
-    
 
    
 

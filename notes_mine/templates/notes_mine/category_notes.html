@@ -10,18 +10,23 @@
                 
     </div>
 
-    <p> Category {{ i.category }} notes:</p>   
     
+    <h1>Category notes:</h1>
     {% if category_notes %}
-        <p>{{ category_notes.category }}</p>
+        
 
         {% for i in category_notes %}
-            {% if i.user == user %}
-                <li>{{ i.title }}</li> 
-            {% endif %}
+            <ul>
+                <li>Pavadinimas{{ i.category_notes.title }}</li>
+            </ul>
+                {% if i.user == user %}   
+                    <button><a href="{% url 'notes_mine:my-note-update' i.pk %}">Edit</a></button> 
+                {% endif %} 
+            <button><a href="{% url 'notes_mine:my-note-delete' i.pk %}">Delete</a></button>
+            
         {% endfor %}
     {% else %}
-        <p>no category selected</p>
+        <p>NO category selected</p>
     {% endif %}
 
         
