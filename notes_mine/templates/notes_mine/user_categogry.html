@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+    <h1>{%trans 'My category preview'%}:</h1>
+    <hr>
+    
+    <h2 class="title-style">{{object.name}}</h2>
+    
+        
+        
+        {% if object.user == user %}
+        <div class="create-buttons">
+            <button>
+                <a class="nav-link" class="btn" href="#">{%trans 'Edit'%}</a>
+            </button>
+            <button>
+                <a class="btn" href="#">{%trans 'Delete'%}</a>
+            </button>
+            
+        </div>
+        {% endif %}
+        <br/>
+      </li>
+    </ul>
+{% endblock %}

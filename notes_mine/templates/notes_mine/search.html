@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+  <h1>{%trans 'Paieškos pagal'%} "{{query}}" {%trans 'rezultatai'%}:</h1>
+  </br>
+  
+    {% if notes %}
+       
+      {% for note in notes %}
+        <ul>
+          <li>
+            {% if note.user == user %}
+              <a href="{% url 'notes_mine:my-note' note.id %}">{{ note.title }}</a> ({%trans 'Category'%}: {{note.category.name}})
+              
+                <div class="create-buttons">
+                  <button class="btn">
+                      <a class="" class="" href="{% url 'notes_mine:my-note-update' note.id %}">{%trans 'Edit'%}</a>
+                  </button>
+                  <button class="btn">
+                      <a  href="{% url 'notes_mine:my-note-delete' note.id %}">{%trans 'Delete'%}</a>
+                  </button>
+                  
+                </div>
+            {% else %}
+              <h3 class="title-style">{%trans 'Search returned no results'%}..</h3>
+            {% endif %}
+          </li>
+        </ul>
+      {% endfor %}
+  
+    {% else %}
+      <h3 class="title-style">{%trans 'Search returned no results'%}..</h3>
+    {% endif %}
+
+
+  {% endblock %}

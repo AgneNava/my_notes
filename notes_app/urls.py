@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('notes_mine/', include('notes_mine.urls')),
+    path('notes_mine/', include(('notes_mine.urls', 'notes_mine'), namespace='notes_mine')),
     path('admin/', admin.site.urls),
-]
+    path('', RedirectView.as_view(url='notes_mine/', permanent=False)),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="create-buttons">
+  <button class="btn"><a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">{%trans 'New note' %}</a></button>
+  <button class="btn"><a class="nav-link" href="{% url 'notes_mine:my-new-category' %}">{%trans 'New Category'%}</a></button>
+  
+</div>
+
+  <h1 class="title-style">{%trans 'My notes'%}</h1>
+    {% if note_list %}
+    <div class="notes-screen">
+      {% for note in note_list %}
+      <div class="note-screen">
+        
+        {% if note.photo %}
+          <img src="{{ note.photo.url }}" max-width="10px"  class="card-img-top" alt="note_pic">
+        {% else %}
+          <img src="https://via.placeholder.com/100x50" class="card-img-top">
+        {% endif %}
+        <h2>{{note.title}}</h2>
+        {% if note.category %}
+          <h3>{{note.category.name}}</h3>
+        {% else %}
+          <p>{%trans 'No category selected'%}</p>
+        {% endif %}    
+        
+        <p>{{note.text}}</p>
+        
+                    
+        {% if note.user == user %}
+          <div class="create-buttons">
+            <button class="btn" style="width: 50%;">
+              <a href="{% url 'notes_mine:my-note-update' note.id%}">{%trans 'Edit'%}</a>
+            </button>
+              
+          </div>
+        {% endif %}
+        <br/>
+        <div class="create-buttons">
+          <button class="btn" style="width: 50%;">
+            <a href="{% url 'notes_mine:my-note' note.id%}" role="button">{%trans 'Preview'%}</a>
+          </button>
+        </div>
+        
+        </div>
+      {% endfor %}
+    </div>
+    {% else %}
+      <p>{%trans 'There are no notes created yet. You can start here'%}: <button class="btn"><a href="{% url 'notes_mine:my-new-note' %}" role="button">{%trans 'Create'%}</a></button> </p>
+    {% endif %}
+
+ 
+  
+{% endblock %}
+
+
+
+

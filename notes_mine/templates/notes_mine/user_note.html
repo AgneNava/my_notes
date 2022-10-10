@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+    <div class="note-prev">
+        <hr>
+        <h2 class="title-style">{{object.title}}</h2>
+       
+        {% if object.photo %}
+            <img src="{{ object.photo.url }}" class="card-img-top" alt="pic">
+        {% else %}
+            <p>{%trans 'No photo'%}</p>
+        {% endif %}
+        
+        <h3>{%trans 'Categogry'%}: <span style="color: red;">"{{object.category}}"</span> </h3>
+        <hr>
+        <p>{{object.text}}</p>
+        <ul>
+            
+            
+            {% if object.user == user %}
+            <div class="create-buttons">
+                <button class="btn" >
+                    <a class="nav-link" href="{% url 'notes_mine:my-note-update' object.id %}">{%trans 'Edit'%}</a>
+                </button>
+                <button class="btn">
+                    <a class="nav-link" href="{% url 'notes_mine:my-note-delete' object.id %}">{%trans 'Delete'%}</a>
+                </button>
+                
+            </div>
+            {% endif %}
+            <br/>
+        </li>
+        </ul>
+    </div>
+{% endblock %}

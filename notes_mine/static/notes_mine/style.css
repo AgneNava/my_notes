@@ -1,0 +1,249 @@
+body {
+  margin: 0;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  font-family: Poppins;
+}
+
+.main-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  padding-top: 1rem;
+  box-shadow: 0px 10px 13px -7px #595959, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.main-header .sidebar {
+  color: #3e9ec1;
+  width: 30%;
+}
+
+
+
+.main-header-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 8%;
+}
+
+header img {
+  width: 95%;  
+}
+
+.main-header-logo-text {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.main-header-nav-stranger, .main-header-nav-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* width: 80%; */
+}
+
+/* .nav-right {
+  width: 70%;
+} */
+
+.main-header-nav-stranger > a, .main-header-nav-user > a, .listed-ancor-items {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #555555;
+  padding-left: 1rem;
+  
+}
+
+.main-header-nav-stranger, .main-header-nav-user a:last-child {
+  color: #3e9ec1;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-section .sidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: #3e9ec1;
+  padding: 1.5rem;
+  width: 90%;
+}
+
+.main-section .sidebar div {
+  display: flex;
+  flex-direction: row;  
+}
+
+.main-section .sidebar div > ion-icon {
+  height: 100%;
+  padding-right: 0.3rem;
+}
+
+.main-section .sidebar div > a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #555555;
+  padding-right: 1rem;  
+}
+
+.main-section .front {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.notes-screen {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: space-around;
+  padding: 1rem;
+  flex-wrap: wrap;
+  
+}
+
+.note-screen {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  /* padding: 0.5rem; */
+  margin: 2rem;
+  border: 1px solid #3e9ec1;
+  color: #555555;  
+  /* border-style: groove; */
+  /* border-radius: 0.5rem; */
+}
+
+.note-screen > img {
+  width: 100%;
+}
+
+.title-style {
+  color: #3e9ec1;
+  padding-left: 3rem;
+}
+
+.content-section {
+  width: 60%;
+}
+
+.create-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* padding-top: 2.5rem; */
+}
+.create-buttons > button {
+  background-color: #3e9ec1;
+  border-radius: 0.2rem; 
+  font-size: 1.5rem;
+  padding: 1rem;
+  width: 15%;
+  margin: 0.3rem;
+  border: none;
+} 
+
+.create-buttons button > a, h3 button > a, h2 button > a, p button > a {
+  color: whitesmoke;
+  text-decoration: none;
+
+}
+
+.create-buttons .btn, form .btn, p .btn, .btn {
+  background: #3e9ec1;
+  background-image: -webkit-linear-gradient(top, #56c7f0, #3e9ec1);
+  background-image: -moz-linear-gradient(top, #56c7f0, #3e9ec1);
+  background-image: -ms-linear-gradient(top, #56c7f0, #3e9ec1);
+  background-image: -o-linear-gradient(top, #56c7f0, #3e9ec1);
+  background-image: linear-gradient(to bottom, #56c7f0, #3e9ec1);
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  font-family: Poppins;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+}
+
+.btn:hover {
+  background: #66c4e6;
+  background-image: -webkit-linear-gradient(top, #8dd8f4, #66c4e6);
+  background-image: -moz-linear-gradient(top, #8dd8f4, #66c4e6);
+  background-image: -ms-linear-gradient(top, #8dd8f4, #66c4e6);
+  background-image: -o-linear-gradient(top, #8dd8f4, #66c4e6);
+  background-image: linear-gradient(to bottom, #8dd8f4, #66c4e6);
+  text-decoration: none;
+}
+
+
+hr {
+  width: 90%;
+}
+
+.note-prev {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+
+}
+
+.form-group-top {
+  background-color: #ffe2c5;
+  border: none;
+  
+}
+
+.form-group-top legend {
+  font-family: Poppins;
+  font-size: 3rem;
+  color: #3e9ec1;
+}
+
+.form-content-section {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form-group-top {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.my-form-style li input, .my-form-style li textarea {
+  width: 80%;
+  border: none;
+}
+
+.my-form-style li select, .form-group input, .search-form select  {
+  border: none;
+  margin-bottom: 0.5rem;
+}
+
+.info-message {
+  color: orangered;
+  font-size: x-large;
+  /* font-weight: bold; */
+}
+
+#home-icon {
+  padding-right: 2rem;
+}
+
+.footer {
+  margin: 0 auto;
+}

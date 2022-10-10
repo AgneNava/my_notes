@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="create-buttons">
+  <h2 class="title-style" style="color: #555555;" >{%trans 'You have logged out succesfully'%}!</h2><button class="btn"><a href="{% url 'login'%}">{%trans 'Login again'%}</a></button>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+  
+    
+    <hr/>
+    <h2 class="title-style">{%trans 'No Notes yet. Start here'%}:</h2>
+    <div class="create-buttons">
+        <button><a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">{%trans 'New note'%}</a></button>
+                
+    </div>
+
+    
+    <h1>{%trans 'Category'%} {{ cat_notes.x.name }} {%trans 'notes'%}:</h1>
+    {% if cat_notes %}
+        
+
+        {% for x in cat_notes %}
+            <ul>
+                <li>
+                    {% if x.user == user %}
+                        <a href="{% url 'notes_mine:my-note' x.id %}">{{ x.title }}</a> 
+                            <div>
+                                <button>
+                                    <a href="{% url 'notes_mine:my-note-update' x.id %}">{%trans 'Edit'%}</a>
+                                </button>
+                                <button>
+                                    <a href="{% url 'notes_mine:my-note-delete' x.id %}">{%trans 'Delete'%}</a>
+                                </button>
+                            </div>
+                    {% else %}
+                        <h3 class="title-style">{%trans 'No such category'%}</h3>
+                    {% endif %} 
+                </li>
+            </ul>        
+                
+            
+            
+        {% endfor %}
+    {% else %}
+        <p>{%trans 'No category selected'%}</p>
+    {% endif %}
+
+        
+    
+
+{% endblock %}

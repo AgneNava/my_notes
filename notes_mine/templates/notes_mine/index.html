@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="create-buttons">
+  <button><a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">{%trans 'New note'%}:</a></button>
+  <button><a class="nav-link" href="{% url 'notes_mine:my-new-category' %}">{%trans 'New Category'%}:</a></button>
+  
+</div>
+
+  <h1 style="color: #3e9ec1;">{%trans 'You have came to the right place!'%}</h1>
+  <h3>{%trans 'Here you can'%}: </h3>
+    <ul>
+      <li>{%trans 'Store your notes with pictures'%}</li>
+      <li>{%trans 'Edit notes'%}</li>
+      <li>{%trans 'Edit categories'%}</li>
+      <li>{%trans 'And many more'%}!</li>
+    </ul>
+
+
+  <p>{%trans 'There are no notes created yet. You can start here'%}: <a href="{% url 'notes_mine:my-new-note' %}" role="button">{%trans 'Create'%}</a></p>
+    
+ 
+  
+{% endblock %}
+
+
+

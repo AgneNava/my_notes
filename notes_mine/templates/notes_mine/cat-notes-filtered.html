@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+
+    <form class="main-form" method="get">
+        {{ filter.form.as_p }}
+        <input class="btn" type="submit" />
+    </form>
+
+    <div class="notes-screen">
+    {% for obj in filter.qs %}
+        {% if obj.user == user %}
+        <div class="note-screen">
+            {% if obj.photo %}
+          <img src="{{ obj.photo.url }}" max-width="10px"  class="card-img-top" alt="note_pic">
+        {% else %}
+          <img src="https://via.placeholder.com/100x50" class="card-img-top">
+        {% endif %}
+        <h2>{{obj.title}}</h2>
+        {% if obj.category %}
+          <h3>{{obj.category.name}}</h3>
+        {% else %}
+          <p>{%trans 'No category selected'%}</p>
+        {% endif %}    
+        
+        <p>{{obj.text}}</p>
+
+        
+        <div class="create-buttons">
+            <button class="btn" style="width: 40%;">
+                <a class="nav-link" href="{% url 'notes_mine:my-note-update' obj.id %}">{%trans 'Edit'%}</a>
+            </button>
+            <button class="btn" style="width: 40%;">
+                <a class="nav-link" href="{% url 'notes_mine:my-note-delete' obj.id %}">{%trans 'Delete'%}</a>
+            </button>
+            
+        </div>
+        
+
+        </div>
+            
+        
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

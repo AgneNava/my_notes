@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+{% load i18n %}
+
+  <div class="create-buttons">
+    <button class="btn"><a class="nav-link" href="{% url 'notes_mine:my-new-category' %}">{%trans 'New category'%}</a></button>
+    
+    
+  </div>
+
+ 
+
+
+  <h1 class="title-style">{%trans 'My categories'%}</h1>
+    {% if categories %}
+    <div class="notes-screen">
+      {% for category in categories %}
+      <div class="note-screen">
+        
+        
+        <div class="create-buttons">
+          <h2 class="title-style">{{ category.name }}</h2>
+          
+        </div>
+        
+        
+        
+                    
+        {% if category.user == user %}
+          <div class="create-buttons">
+            <button class="btn" style="width: 50%;">
+              <a href="{% url 'notes_mine:my-category-update' category.id%}">{%trans 'Edit'%}</a>
+            </button>
+            <button class="btn" style="width: 50%;">
+              <a  href="{% url 'notes_mine:my-category-delete' category.id %}">{%trans 'Delete'%}</a>
+          </button>
+          </div>
+        {% endif %}
+        <br/>
+        
+        
+        </div>
+      {% endfor %}
+    </div>
+    {% else %}
+      <h2 class="title-style" style="color: #555555;">{%trans 'There are no categories yet. You can start here'%}: <button class="btn" style="width: 10%;"><a href="{% url 'notes_mine:my-new-category' %}" role="button">{%trans 'Create'%}</a></button> </h2>
+    {% endif %}
+
+ 
+  
+{% endblock %}
+
+
+
+

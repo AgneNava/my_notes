@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="form-content-section">
+      <div class="">
+        <img class="" src="{{ user.profile.photo.url }}">
+        <div class="media-body">
+          <h2 class="title-style">{{ user.username }}</h2>
+          <h3 class="title-style" style="color: #555555;">{{ user.email }}</h3>
+        </div>
+      </div>
+      <!-- FORM HERE -->
+      <form class="main-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group-top">
+            <legend class="">{%trans 'My Profile Info'%}</legend>
+            {{ u_form }}
+            {{ p_form }}
+        </fieldset>
+        <div class="">
+            <button class="btn" type="submit">{%trans 'Save'%}</button>
+        </div>
+      </form>
+    </div>
+{% endblock content %}
