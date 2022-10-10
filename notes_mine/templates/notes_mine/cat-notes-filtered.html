@@ -29,6 +29,19 @@
         {% endif %}    
         
         <p>{{obj.text}}</p>
+
+        
+        <div class="create-buttons">
+            <button class="btn" style="width: 40%;">
+                <a class="nav-link" href="{% url 'notes_mine:my-note-update' obj.id %}">{%trans 'Edit'%}</a>
+            </button>
+            <button class="btn" style="width: 40%;">
+                <a class="nav-link" href="{% url 'notes_mine:my-note-delete' obj.id %}">{%trans 'Delete'%}</a>
+            </button>
+            
+        </div>
+        
+
         </div>
             
         

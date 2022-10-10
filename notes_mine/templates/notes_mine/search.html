@@ -17,11 +17,11 @@
               <a href="{% url 'notes_mine:my-note' note.id %}">{{ note.title }}</a> ({%trans 'Category'%}: {{note.category.name}})
               
                 <div class="create-buttons">
-                  <button>
-                      <a class="nav-link" class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-note-update' note.id %}">{%trans 'Edit'%}</a>
+                  <button class="btn">
+                      <a class="" class="" href="{% url 'notes_mine:my-note-update' note.id %}">{%trans 'Edit'%}</a>
                   </button>
-                  <button>
-                      <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-note-delete' note.id %}">{%trans 'Delete'%}</a>
+                  <button class="btn">
+                      <a  href="{% url 'notes_mine:my-note-delete' note.id %}">{%trans 'Delete'%}</a>
                   </button>
                   
                 </div>
