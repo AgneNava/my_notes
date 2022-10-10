@@ -148,7 +148,7 @@ header img {
   border: none;
 } 
 
-.create-buttons button > a, h3 button > a {
+.create-buttons button > a, h3 button > a, h2 button > a, p button > a {
   color: whitesmoke;
   text-decoration: none;
 
@@ -227,3 +227,8 @@ hr {
   margin-bottom: 0.5rem;
 }
 
+.info-message {
+  color: orangered;
+  font-size: x-large;
+  /* font-weight: bold; */
+}

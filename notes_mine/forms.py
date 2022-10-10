@@ -28,7 +28,7 @@ class RegistrationForm(forms.Form):
     password = cleaned_data['password']
     password2 = cleaned_data['password2']
     if password != password2:
-      raise ValidationError(_('Passwords do not match!'))
+      raise ValidationError('Passwords do not match!')
 
 
 class UserUpdateForm(forms.ModelForm):

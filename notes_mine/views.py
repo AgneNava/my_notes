@@ -38,8 +38,12 @@ def register(request):
             password=form.cleaned_data['password'])   
             messages.info(request, _('Registration successful!'))
             return render(request, 'notes_mine/register.html')
+        else:
+            messages.info(request, _('Wrong data entered. Please try again'))
+            return render(request, 'notes_mine/register.html')
     else: 
         form = RegistrationForm()
+        
 
     return render(request, 'notes_mine/register.html', {'form': form})
 
@@ -101,16 +105,7 @@ class UserNoteCreateView(LoginRequiredMixin, generic.CreateView):
         kwargs['user'] = self.request.user
         return kwargs
 
-# @login_required
-# def UserNoteCreate(request):
-#     if request.method == 'POST':
-#         form = UserNoteCreateForm(request.POST)
-#         if form.is_valid():
-#             Note.objects.create(title=form.cleaned_data['title'], photo=form.cleaned_data['photo'], category=form.cleaned_data['category'], text=['text'])
-#             return render(request, 'notes_mine/.mynotes.html')
-#     else:
-#         form = UserNoteCreateForm()
-#     return render(request, 'notes_mine/my-new-note.html', {'form': form})
+
 
 class NoteUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Note

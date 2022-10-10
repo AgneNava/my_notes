@@ -3,7 +3,7 @@
 {% block content %}
 
   {% if form.errors %}
-    <p>Login error! Please try again </p>
+    <p class="info-message">Login error! Please try again </p>
   {% endif %}
   
   {% if next %}
@@ -14,11 +14,12 @@
   
   <div class="form-content-section">
   <h1 class="title-style">Login</h1><br/>
+  
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <table>
       <tr>
-        <td>User: </td>
+        <td>Username: </td>
         <td>{{ form.username }}</td>
       </tr>
       <tr>
@@ -30,7 +31,11 @@
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
   
-  <p><a href="{% url 'password_reset' %}">Have you forgotten your password?</a></p>
+  <p>Have you forgotten your password? <button class="btn"><a href="{% url 'password_reset' %}">Reset</a></button></p>
+
+  
+  <br>
+  <h2 class="title-style" style="color: #555555;">Or register <button class="btn"><a href="{% url 'notes_mine:register' %}">Register</a></button></h2>
 </div>
   
 {% endblock %}

@@ -31,7 +31,7 @@
         <nav class="main-header-nav">
           {% if user.is_authenticated %}
           <div class="main-header-nav-user">
-            <a href="{% url 'notes_mine:index' %}"><ion-icon name="home"></ion-icon></a>
+            <a href="{% url 'notes_mine:mynotes' %}"><ion-icon name="home"></ion-icon></a>
             <br>
             <form class="search-form" action="{% url 'notes_mine:search' %}" method="get">
               <input type="search" placeholder="Search" aria-label="Search" name="query">

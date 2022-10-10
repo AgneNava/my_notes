@@ -6,18 +6,18 @@
     {% if messages %}
         {% for message in messages %}
             {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-                <div class="alert alert-danger" role="alert">
+                <div class="info-message" role="alert">
                     {{ message }}
                 </div>
             {% else %}
-                <div class="alert alert-info" role="alert">
+                <div class="info-message" role="alert">
                     {{ message }}
                 </div>
             {% endif %}
         {% endfor %}
     {% endif %}
 
-    <div class="form-content-section">
+    <div class="container register">
         <h1 class="title-style">Registration</h1><br/>
         <fieldset class="form-group-top" >
         <form method="post">
@@ -44,7 +44,7 @@
         </fieldset>
             <button type="submit" class="btn">Register</button>
         </form>
-        <h3 style="color: #555555;">If you already have an account - register: <button class="btn"> <a href="{% url 'login' %}"><strong>login.</strong></a> </button> </h3>
+        <h3 style="color: #555555;">If you already have an account: <button class="btn"> <a href="{% url 'login' %}">Login</a> </button> </h3>
     </div>
 
 {% endblock %}

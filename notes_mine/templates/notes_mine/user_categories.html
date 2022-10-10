@@ -19,11 +19,11 @@
     <div class="notes-screen">
       {% for category in categories %}
       <div class="note-screen">
-        <hr>
+        
         
         <div class="create-buttons">
-          <button style="width: 50%;">
-            <a href="{% url 'notes_mine:my-category' category.id %}" class="listed-ancor-items">{{ category.name }}</a>
+          <button class="btn" style="width: 50%;">
+            <a href="#" class="listed-ancor-items">{{ category.name }}</a>
           </button>
         </div>
         
@@ -32,26 +32,22 @@
                     
         {% if category.user == user %}
           <div class="create-buttons">
-            <button style="width: 50%;">
+            <button class="btn" style="width: 50%;">
               <a href="{% url 'notes_mine:my-category-update' category.id%}">EDIT</a>
             </button>
-            <button>
-              <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'notes_mine:my-category-delete' category.id %}">Delete</a>
+            <button class="btn" style="width: 50%;">
+              <a  href="{% url 'notes_mine:my-category-delete' category.id %}">Delete</a>
           </button>
           </div>
         {% endif %}
         <br/>
-        <!-- <div class="create-buttons">
-          <button style="width: 50%;">
-            <a href="{% url 'notes_mine:my-category-preview' category.id%}" role="button">PREVIEW</a>
-          </button>
-        </div> -->
+        
         
         </div>
       {% endfor %}
     </div>
     {% else %}
-      <p>There are no categories yet. You can start here: <a href="{% url 'notes_mine:my-new-category' %}" role="button">CREATE</a></p>
+      <p>There are no categories yet. You can start here: <button class="btn" style="width: 10%;"><a href="{% url 'notes_mine:my-new-category' %}" role="button">CREATE</a></button> </p>
     {% endif %}
 
  
