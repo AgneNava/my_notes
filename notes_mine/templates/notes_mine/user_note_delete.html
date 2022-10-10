@@ -1,16 +1,19 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% load i18n %}
 
 {% block content %}
     <div class="content-section">
     <form method="POST">
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class="form-legend">Delete note</legend>
-            <h2>Are you sure you want to delete your note <span style="color: orangered;">{{ object.title }}</span> ?</h2>
+            <legend class="form-legend">{% trans 'Delete note' %}</legend>
+            <h2>{% trans 'Are you sure you want to delete your note' %} <span style="color: orangered;">{{ object.title }}</span> ?</h2>
         </fieldset>
         <div class="form-group">
-            <button class="btn" type="submit">Yes, delete</button>
-            <a class="button-simple" href="{% url 'notes_mine:mynotes' %}">Cancel</a>
+            <button class="btn" type="submit">{% trans 'Yes, delete' %}</button>
+            <a class="button-simple" href="{% url 'notes_mine:mynotes' %}">{% trans 'Cancel' %}</a>
         </div>
     </form>
     </div>

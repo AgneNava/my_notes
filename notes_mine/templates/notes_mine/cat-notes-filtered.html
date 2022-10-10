@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% load i18n %}
+
 {% block content %}
 
 
@@ -21,7 +25,7 @@
         {% if obj.category %}
           <h3>{{obj.category.name}}</h3>
         {% else %}
-          <p>no category selected</p>
+          <p>{%trans 'No category selected'%}</p>
         {% endif %}    
         
         <p>{{obj.text}}</p>

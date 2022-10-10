@@ -7,12 +7,12 @@
 {% load static %}
 
 <div class="create-buttons">
-  <button class="btn"><a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">New note</a></button>
-  <button class="btn"><a class="nav-link" href="{% url 'notes_mine:my-new-category' %}">New Category</a></button>
+  <button class="btn"><a class="nav-link" href="{% url 'notes_mine:my-new-note' %}">{%trans 'New note' %}</a></button>
+  <button class="btn"><a class="nav-link" href="{% url 'notes_mine:my-new-category' %}">{%trans 'New Category'%}</a></button>
   
 </div>
 
-  <h1 class="title-style">My notes</h1>
+  <h1 class="title-style">{%trans 'My notes'%}</h1>
     {% if note_list %}
     <div class="notes-screen">
       {% for note in note_list %}
@@ -27,7 +27,7 @@
         {% if note.category %}
           <h3>{{note.category.name}}</h3>
         {% else %}
-          <p>no category selected</p>
+          <p>{%trans 'No category selected'%}</p>
         {% endif %}    
         
         <p>{{note.text}}</p>
@@ -36,7 +36,7 @@
         {% if note.user == user %}
           <div class="create-buttons">
             <button class="btn" style="width: 50%;">
-              <a href="{% url 'notes_mine:my-note-update' note.id%}">EDIT</a>
+              <a href="{% url 'notes_mine:my-note-update' note.id%}">{%trans 'Edit'%}</a>
             </button>
               
           </div>
@@ -44,7 +44,7 @@
         <br/>
         <div class="create-buttons">
           <button class="btn" style="width: 50%;">
-            <a href="{% url 'notes_mine:my-note' note.id%}" role="button">PREVIEW</a>
+            <a href="{% url 'notes_mine:my-note' note.id%}" role="button">{%trans 'Preview'%}</a>
           </button>
         </div>
         
@@ -52,7 +52,7 @@
       {% endfor %}
     </div>
     {% else %}
-      <p>There are no notes created yet. You can start here: <button class="btn"><a href="{% url 'notes_mine:my-new-note' %}" role="button">CREATE</a></button> </p>
+      <p>{%trans 'There are no notes created yet. You can start here'%}: <button class="btn"><a href="{% url 'notes_mine:my-new-note' %}" role="button">{%trans 'Create'%}</a></button> </p>
     {% endif %}
 
  

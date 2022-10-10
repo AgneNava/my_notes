@@ -1,0 +1,289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-10 17:42+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: .\forms.py:17
+#, python-format
+msgid "Username %s is taken!"
+msgstr "Vartotojo vardas %s jau uzimtas!"
+
+#: .\forms.py:23
+#, python-format
+msgid "Account with  email %s already exists!"
+msgstr "Paskyra su e-pasto adresu %s jau egzistuoja!"
+
+#: .\forms.py:31
+msgid "Passwords do not match!"
+msgstr "Slaptazodziai nesutampa"
+
+#: .\models.py:9 .\templates\notes_mine\user_category_form.html:14
+#: .\templates\notes_mine\user_note_form.html:12
+msgid "Title"
+msgstr "Pavadinimas"
+
+#: .\models.py:10 .\templates\notes_mine\user_note_form.html:13
+msgid "Photo"
+msgstr "Foto"
+
+#: .\models.py:11 .\templates\notes_mine\user_note_form.html:17
+msgid "Text"
+msgstr "Tekstas"
+
+#: .\models.py:29
+msgid "Name"
+msgstr "Pavadinimas"
+
+#: .\templates\base.html:31
+msgid "Notes app"
+msgstr "Uzrasine"
+
+#: .\templates\base.html:44
+msgid "Search"
+msgstr "Ieskoti"
+
+#: .\templates\base.html:48
+msgid "Logout"
+msgstr "Atsijungti"
+
+#: .\templates\base.html:56 .\templates\notes_mine\register.html:49
+msgid "Login"
+msgstr "Prisijungti"
+
+#: .\templates\base.html:58 .\templates\notes_mine\register.html:47
+msgid "Register"
+msgstr "Registruotis"
+
+#: .\templates\base.html:76
+msgid "Filter Categories"
+msgstr "Filtruoti kategorijas"
+
+#: .\templates\base.html:80
+msgid "My Notes"
+msgstr "Mano uzrasai"
+
+#: .\templates\base.html:84
+msgid "New Note"
+msgstr "Naujas uzrasas"
+
+#: .\templates\base.html:89
+msgid "Edit Categories"
+msgstr "Redaguoti kategorijas"
+
+#: .\templates\notes_mine\cat-notes-filtered.html:28
+#: .\templates\notes_mine\category_notes.html:45
+#: .\templates\notes_mine\user_notes.html:30
+msgid "No category selected"
+msgstr "Nepasirinkta jokia kategorija"
+
+#: .\templates\notes_mine\category_notes.html:11
+msgid "No Notes yet. Start here"
+msgstr "Dar nera sukurta uzrasu. Pradekite cia"
+
+
+#: .\templates\notes_mine\category_notes.html:18
+#: .\templates\notes_mine\search.html:17
+#: .\templates\notes_mine\user_note_form.html:15
+msgid "Category"
+msgstr "Kategorija"
+
+#: .\templates\notes_mine\category_notes.html:18
+msgid "notes"
+msgstr "uzrasai"
+
+#: .\templates\notes_mine\category_notes.html:29
+#: .\templates\notes_mine\search.html:21
+#: .\templates\notes_mine\user_categogry.html:18
+#: .\templates\notes_mine\user_categories.html:37
+#: .\templates\notes_mine\user_category_preview.html:19
+#: .\templates\notes_mine\user_note.html:24
+#: .\templates\notes_mine\user_notes.html:39
+msgid "Edit"
+msgstr "Redaguoti"
+
+#: .\templates\notes_mine\category_notes.html:32
+#: .\templates\notes_mine\search.html:24
+#: .\templates\notes_mine\user_categogry.html:21
+#: .\templates\notes_mine\user_categories.html:40
+#: .\templates\notes_mine\user_category_preview.html:22
+#: .\templates\notes_mine\user_note.html:27
+msgid "Delete"
+msgstr "Istrinti zinute"
+
+#: .\templates\notes_mine\category_notes.html:36
+msgid "No such category"
+msgstr "Tokios kategorijos nera"
+
+#: .\templates\notes_mine\index.html:13
+#: .\templates\notes_mine\user_notes.html:11
+msgid "New Category"
+msgstr "Nauja kateorija"
+
+#: .\templates\notes_mine\index.html:17
+msgid "You have came to the right place!"
+msgstr "Pasirinkote teisinga puslapi!"
+
+#: .\templates\notes_mine\index.html:18
+msgid "Here you can"
+msgstr "Cia jus galite"
+
+#: .\templates\notes_mine\index.html:20
+msgid "Store your notes with pictures"
+msgstr "Saugoti savo uzrasus su nuotraukomis"
+
+#: .\templates\notes_mine\index.html:21
+msgid "Edit notes"
+msgstr "Redaguoti uzrasus"
+
+#: .\templates\notes_mine\index.html:22
+msgid "Edit categories"
+msgstr "Redaguoti kategorijas"
+
+#: .\templates\notes_mine\index.html:23
+msgid "And many more"
+msgstr "Ir daug daugiau"
+
+#: .\templates\notes_mine\index.html:27
+#: .\templates\notes_mine\user_notes.html:55
+msgid "There are no notes created yet. You can start here"
+msgstr "Dar nesukurta jokiu uzrasu. Pradekite cia"
+
+#: .\templates\notes_mine\index.html:27
+#: .\templates\notes_mine\user_categories.html:51
+#: .\templates\notes_mine\user_notes.html:55
+msgid "Create"
+msgstr "Sukurti"
+
+#: .\templates\notes_mine\profile.html:20
+msgid "My Profile Info"
+msgstr "Mano profilio info"
+
+#: .\templates\notes_mine\profile.html:25
+#: .\templates\notes_mine\user_category_form.html:19
+#: .\templates\notes_mine\user_note_form.html:22
+msgid "Save"
+msgstr "Saugoti"
+
+
+
+#: .\templates\notes_mine\register.html:28
+msgid "User name"
+msgstr "Vartotojo vardas"
+
+#: .\templates\notes_mine\register.html:30
+msgid "Up to 150 symbols"
+msgstr "Iki 150 simboliu"
+
+#: .\templates\notes_mine\register.html:33
+msgid "Email"
+msgstr "E-pastas"
+
+#: .\templates\notes_mine\register.html:35
+msgid "Only for password reset purposes"
+msgstr "Tik slaptazodziui atstatyti"
+
+#: .\templates\notes_mine\register.html:38
+msgid "Password"
+msgstr "Slaptazodis"
+
+#: .\templates\notes_mine\register.html:40
+msgid "Up from 8 symbols. Must include not only numbers"
+msgstr "Ne maziau kaip 8 simboliai ir ne vien skaiciai"
+
+#: .\templates\notes_mine\register.html:43
+msgid "Repeat password"
+msgstr "Pakartokite slaptazodi"
+
+#: .\templates\notes_mine\register.html:49
+msgid "If you already have an account"
+msgstr "Jeigu jau turite paskyra"
+
+#: .\templates\notes_mine\search.html:8
+msgid "Paieškos pagal"
+msgstr ""
+
+#: .\templates\notes_mine\search.html:8
+msgid "rezultatai"
+msgstr ""
+
+#: .\templates\notes_mine\search.html:29 .\templates\notes_mine\search.html:36
+msgid "Search returned no results"
+msgstr "Nieko nerasta"
+
+#: .\templates\notes_mine\user_categogry.html:8
+#: .\templates\notes_mine\user_category_preview.html:8
+msgid "My category preview"
+msgstr "Mano kategorijos perziura"
+
+#: .\templates\notes_mine\user_categories.html:11
+#: .\templates\notes_mine\user_category_form.html:12
+msgid "New category"
+msgstr "Nauja kategorija"
+
+#: .\templates\notes_mine\user_categories.html:19
+msgid "My categories"
+msgstr "Mano kategorijos"
+
+#: .\templates\notes_mine\user_categories.html:51
+msgid "There are no categories yet. You can start here"
+msgstr "Dar nesukurta jokiu kategoriju. Pradekite cia"
+
+#: .\templates\notes_mine\user_category_delete.html:12
+#: .\templates\notes_mine\user_note_delete.html:11
+msgid "Delete note"
+msgstr "Istrinti zinute"
+
+#: .\templates\notes_mine\user_category_delete.html:13
+msgid "Are you sure you want to delete your category"
+msgstr "Ar tikrai norite istrinti zinute"
+
+#: .\templates\notes_mine\user_category_delete.html:16
+#: .\templates\notes_mine\user_note_delete.html:15
+msgid "Yes, delete"
+msgstr "Taip, istrinti"
+
+#: .\templates\notes_mine\user_category_delete.html:17
+#: .\templates\notes_mine\user_note_delete.html:16
+msgid "Cancel"
+msgstr "Atsaukti"
+
+#: .\templates\notes_mine\user_note.html:12
+msgid "No photo"
+msgstr "Foto"
+
+#: .\templates\notes_mine\user_note_delete.html:12
+msgid "Are you sure you want to delete your note"
+msgstr "Ar tikrai norite istrinti zinute"
+
+#: .\templates\notes_mine\user_notes.html:15
+msgid "My notes"
+msgstr "Mano uzrasai"
+
+#: .\templates\notes_mine\user_notes.html:47
+msgid "Preview"
+msgstr "Perziura"
+
+#: .\views.py:39
+msgid "Registration successful!"
+msgstr "Registracija sekminga!"
+
+#: .\views.py:42
+msgid "Wrong data entered. Please try again"
+msgstr "Ivesti neteisingi duomenys. Bandykite dar karta"

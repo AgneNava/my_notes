@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
+{% load static %}
 
+{% load i18n %}
 
 {% block content %}
     <div class="form-content-section">
@@ -15,12 +17,12 @@
       <form class="main-form" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group-top">
-            <legend class="">My Profile Info</legend>
+            <legend class="">{%trans 'My Profile Info'%}</legend>
             {{ u_form }}
             {{ p_form }}
         </fieldset>
         <div class="">
-            <button class="btn" type="submit">Renew</button>
+            <button class="btn" type="submit">{%trans 'Save'%}</button>
         </div>
       </form>
     </div>

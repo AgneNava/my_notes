@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% load i18n %}
+
 {% block content %}
     <div class="content-section">
     <form method="POST" enctype='multipart/form-data'>
         {% csrf_token %}
             <fieldset class="form-group-top">
-                <legend class="">New category</legend>
+                <legend class="">{%trans 'New category'%}</legend>
                     <ul class="my-form-style">
-                        <li id='id_name' class="form-list"> Title: {{ form.name }}</li>
+                        <li id='id_name' class="form-list"> {%trans 'Title'%}: {{ form.name }}</li>
                         
                     </ul>
             </fieldset>
         <div class="form-group">
-            <button class="btn " type="submit">Save</button>
+            <button class="btn " type="submit">{%trans 'Save'%}</button>
         </div>
     </form>
     </div>
