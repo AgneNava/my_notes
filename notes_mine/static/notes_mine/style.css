@@ -35,13 +35,20 @@ header img {
 
 .main-header-logo-text {
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .main-header-nav-stranger, .main-header-nav-user {
   display: flex;
   flex-direction: row;
   align-items: center;
+  /* width: 80%; */
 }
+
+/* .nav-right {
+  width: 70%;
+} */
 
 .main-header-nav-stranger > a, .main-header-nav-user > a, .listed-ancor-items {
   text-decoration: none;
@@ -222,7 +229,7 @@ hr {
   border: none;
 }
 
-.my-form-style li select, .form-group input  {
+.my-form-style li select, .form-group input, .search-form select  {
   border: none;
   margin-bottom: 0.5rem;
 }

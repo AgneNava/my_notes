@@ -1,29 +1,33 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% load i18n %}
+
 {% block content %}
 
   {% if form.errors %}
-    <p class="info-message">Login error! Please try again </p>
+    <p class="info-message">{%trans 'Login error! Please try again'%} </p>
   {% endif %}
   
   {% if next %}
     {% if user.is_authenticated %}
-      <p>You must login to see the contents of the page</p>
+      <p>{%trans 'You must login to see the contents of the page'%}</p>
     {% endif %}
   {% endif %}
   
   <div class="form-content-section">
-  <h1 class="title-style">Login</h1><br/>
+  <h1 class="title-style">{%trans 'Login'%}</h1><br/>
   
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <table>
       <tr>
-        <td>Username: </td>
+        <td>{%trans 'Username'%}: </td>
         <td>{{ form.username }}</td>
       </tr>
       <tr>
-        <td>Password: </td>
+        <td>{%trans 'Password'%}: </td>
         <td>{{ form.password }}</td>
       </tr>
     </table>
@@ -31,11 +35,11 @@
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
   
-  <p>Have you forgotten your password? <button class="btn"><a href="{% url 'password_reset' %}">Reset</a></button></p>
+  <p>{%trans 'Have you forgotten your password'%}? <button class="btn"><a href="{% url 'password_reset' %}">{%trans 'Reset'%}</a></button></p>
 
   
   <br>
-  <h2 class="title-style" style="color: #555555;">Or register <button class="btn"><a href="{% url 'notes_mine:register' %}">Register</a></button></h2>
+  <h2 class="title-style" style="color: #555555;">{%trans 'Or register'%} <button class="btn"><a href="{% url 'notes_mine:register' %}">{%trans 'Register'%}</a></button></h2>
 </div>
   
 {% endblock %}

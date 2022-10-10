@@ -26,10 +26,32 @@
     {% load i18n %}
 
     <header class="main-header">
+      
       <div class="main-header-logo">
         <img src="https://findicons.com/files/icons/127/sleek_xp_software/300/notepad.png" alt="logo" />
         <h1 class="main-header-logo-text" style="color: #555555;">{% trans 'Notes app' %}</h1>
       </div>
+
+      <form action="{% url 'set_language' %}" method="post">
+        <div >
+          <div >
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}"/>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" style="margin-left: 0.4rem" name="language" onchange="this.form.submit()">
+              {% load static %}
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% for lang_code, lang_name in LANGUAGES %}
+              <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %} selected="selected" {% endif %}>
+                {{ lang_name }}
+              </option>
+              {% endfor %}
+            </select>
+          <div>
+        <div>
+      </form>
+      
+
       <div>
         <nav class="main-header-nav">
           {% if user.is_authenticated %}
@@ -37,8 +59,9 @@
             <a id="home-icon" href="{% url 'notes_mine:mynotes' %}"><ion-icon name="home"></ion-icon></a>
             <br>
 
-           
-
+            {% load i18n %}
+            
+            <br>
             <form class="search-form" action="{% url 'notes_mine:search' %}" method="get">
               <input type="search" placeholder="Search" aria-label="Search" name="query">
               <button class="btn" type="submit">{% trans 'Search' %}</button>
@@ -81,7 +104,7 @@
         </div>
         <div>          
           <ion-icon name="duplicate-outline"></ion-icon>
-          <a href="{% url 'notes_mine:my-new-note' %}">{% trans 'New Note' %}</a>
+          <a href="{% url 'notes_mine:my-new-note' %}">{%trans 'New Note'%}</a>
         </div>
         
         <div>

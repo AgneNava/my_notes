@@ -66,6 +66,7 @@ def profile(request):
     }
     return render(request, 'notes_mine/profile.html', context=context)
 
+@login_required
 def search(request):
     query = request.GET.get('query')
     search_results = Note.objects.filter(Q(title__icontains=query) | Q(text__icontains=query))

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-10 17:42+0300\n"
+"POT-Creation-Date: 2022-10-10 19:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,39 +51,39 @@ msgstr "Tekstas"
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: .\templates\base.html:31
+#: .\templates\base.html:32
 msgid "Notes app"
 msgstr "Uzrasine"
 
-#: .\templates\base.html:44
+#: .\templates\base.html:67
 msgid "Search"
 msgstr "Ieskoti"
 
-#: .\templates\base.html:48
+#: .\templates\base.html:71
 msgid "Logout"
 msgstr "Atsijungti"
 
-#: .\templates\base.html:56 .\templates\notes_mine\register.html:49
+#: .\templates\base.html:79 .\templates\notes_mine\register.html:49
 msgid "Login"
 msgstr "Prisijungti"
 
-#: .\templates\base.html:58 .\templates\notes_mine\register.html:47
+#: .\templates\base.html:81 .\templates\notes_mine\register.html:47
 msgid "Register"
 msgstr "Registruotis"
 
-#: .\templates\base.html:76
+#: .\templates\base.html:99
 msgid "Filter Categories"
 msgstr "Filtruoti kategorijas"
 
-#: .\templates\base.html:80
+#: .\templates\base.html:103
 msgid "My Notes"
 msgstr "Mano uzrasai"
 
-#: .\templates\base.html:84
+#: .\templates\base.html:107
 msgid "New Note"
 msgstr "Naujas uzrasas"
 
-#: .\templates\base.html:89
+#: .\templates\base.html:112
 msgid "Edit Categories"
 msgstr "Redaguoti kategorijas"
 
@@ -97,6 +97,12 @@ msgstr "Nepasirinkta jokia kategorija"
 msgid "No Notes yet. Start here"
 msgstr "Dar nera sukurta uzrasu. Pradekite cia"
 
+#: .\templates\notes_mine\category_notes.html:13
+#: .\templates\notes_mine\index.html:12
+#: .\templates\notes_mine\user_note_form.html:10
+#: .\templates\notes_mine\user_notes.html:10
+msgid "New note"
+msgstr "Naujas uzrasas"
 
 #: .\templates\notes_mine\category_notes.html:18
 #: .\templates\notes_mine\search.html:17
@@ -134,7 +140,7 @@ msgstr "Tokios kategorijos nera"
 #: .\templates\notes_mine\index.html:13
 #: .\templates\notes_mine\user_notes.html:11
 msgid "New Category"
-msgstr "Nauja kateorija"
+msgstr "Nauja kategorija"
 
 #: .\templates\notes_mine\index.html:17
 msgid "You have came to the right place!"
@@ -181,7 +187,11 @@ msgstr "Mano profilio info"
 msgid "Save"
 msgstr "Saugoti"
 
-
+#: .\templates\notes_mine\register.html:23
+#, fuzzy
+#| msgid "Register"
+msgid "Registration"
+msgstr "Registruotis"
 
 #: .\templates\notes_mine\register.html:28
 msgid "User name"
@@ -267,6 +277,10 @@ msgstr "Atsaukti"
 #: .\templates\notes_mine\user_note.html:12
 msgid "No photo"
 msgstr "Foto"
+
+#: .\templates\notes_mine\user_note.html:15
+msgid "Categogry"
+msgstr "Kategorija"
 
 #: .\templates\notes_mine\user_note_delete.html:12
 msgid "Are you sure you want to delete your note"
