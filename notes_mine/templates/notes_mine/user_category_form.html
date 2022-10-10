@@ -1,16 +1,22 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
+
 {% block content %}
     <div class="content-section">
     <form method="POST" enctype='multipart/form-data'>
         {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">New category</legend>
-            {{ form|crispy }}
-        </fieldset>
+            <fieldset class="form-group-top">
+                <legend class="">New category</legend>
+                    <ul class="my-form-style">
+                        <li id='id_name' class="form-list"> Title: {{ form.name }}</li>
+                        
+                    </ul>
+            </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Save</button>
+            <button class="btn " type="submit">Save</button>
         </div>
     </form>
     </div>
 {% endblock content %}
+
+
+

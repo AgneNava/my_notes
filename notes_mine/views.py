@@ -195,5 +195,7 @@ class CatNotesListView(LoginRequiredMixin,generic.ListView):
 def notes_list(request):
     filter = CatNotesFilter(request.GET, queryset=Note.objects.all())
     return render(request, 'notes_mine/cat-notes-filtered.html', {'filter': filter})
+
+    
    
 

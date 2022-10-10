@@ -52,7 +52,7 @@
       {% endfor %}
     </div>
     {% else %}
-      <p>There are no notes created yet. You can start here: <a href="{% url 'notes_mine:my-new-note' %}" role="button">CREATE</a></p>
+      <p>There are no notes created yet. You can start here: <button class="btn"><a href="{% url 'notes_mine:my-new-note' %}" role="button">CREATE</a></button> </p>
     {% endif %}
 
  

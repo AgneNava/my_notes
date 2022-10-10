@@ -232,3 +232,11 @@ hr {
   font-size: x-large;
   /* font-weight: bold; */
 }
+
+#home-icon {
+  padding-right: 2rem;
+}
+
+.footer {
+  margin: 0 auto;
+}

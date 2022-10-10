@@ -1,5 +1,8 @@
 {% extends "base.html" %} 
 {% block content %}
-<p>You have logged out succesfully!</p>
-<a href="{% url 'login'%}">Login again</a>
+<div class="create-buttons">
+  <h2 class="title-style" style="color: #555555;" >You have logged out succesfully!</h2><button class="btn"><a href="{% url 'login'%}">Login again</a></button>
+</div>
+
+
 {% endblock %}
